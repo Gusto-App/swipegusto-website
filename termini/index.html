@@ -2,145 +2,266 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Condizioni di Servizio · Gusto</title>
-<meta name="description" content="Gusto — la dieta settimanale personalizzata sui tuoi gusti.">
-<style>
-:root{--bg:#F1EFEB;--surface:#FFFFFF;--ink:#1F1E1C;--muted:#5A5955;--accent:#5A7355;--accent-dark:#455A42;--line:#E3E0DA}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;font-size:17px}
-a{color:var(--accent-dark);text-decoration:none}
-a:hover{text-decoration:underline}
-header.site{background:var(--accent);color:#fff}
-header.site .wrap{max-width:820px;margin:0 auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-header.site .brand{font-weight:800;font-size:22px;letter-spacing:.5px;color:#fff}
-header.site nav a{color:#fff;opacity:.92;margin-left:18px;font-size:15px;font-weight:600}
-main{max-width:820px;margin:0 auto;padding:34px 22px 60px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 30px}
-h1{font-size:30px;line-height:1.25;margin:.2em 0 .4em}
-h2{font-size:22px;margin:1.6em 0 .5em;padding-top:.3em}
-h3{font-size:18px;margin:1.3em 0 .4em}
-table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15px;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-th{background:#F3F1EC}
-code{background:#F3F1EC;padding:1px 5px;border-radius:5px;font-size:.9em}
-hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-blockquote{border-left:3px solid var(--accent);margin:1em 0;padding:.2em 1em;color:var(--muted);background:#F7F5F1;border-radius:0 8px 8px 0}
-footer.site{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-footer.site .wrap{max-width:820px;margin:0 auto;padding:26px 22px;display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
-footer.site a{color:var(--muted);margin-right:16px}
-.hero{text-align:center;padding:56px 22px 30px}
-.hero h1{font-size:40px;margin:.1em 0 .2em}
-.hero p{font-size:19px;color:var(--muted);max-width:560px;margin:0 auto 26px}
-.pill{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;margin:6px}
-.pill.ghost{background:transparent;color:var(--accent-dark);border:1.5px solid var(--accent)}
-.updated{color:var(--muted);font-size:14px}
-@media (max-width:560px){body{font-size:16px}.hero h1{font-size:32px}h1{font-size:26px}.card{padding:22px 18px}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--
+  GUSTO · TERMINI D'USO. Preparati in UFF-553 il 12/11/2026, pubblicati il 12/11/2026 (UFF-559).
+  Base: la revisione del 15/10 (GUSTO-LANCIO-30-GIORNI/12_TERMINI_E_PRIVACY_REVISIONE_LEGALE.md, Parte A, pagina 1),
+  con le correzioni del parere di Livia del 05/11 (Legale/Gusto/parere-termini-e-privacy.md: B1-B4, B7, B10, B14, D1, D3, D4, D6, D7, F1)
+  e i fatti dell'app ricontrollati nel codice il 12/11 (repo Gusto-App, main ad2b39fe).
+  Pubblicati senza segnaposti: le frasi che descrivono cose non ancora pronte sono tolte e tornano quando sono vere.
+-->
+<title>Termini d’uso · Gusto</title>
+<meta name="description" content="I Termini d’uso di Gusto: chi siamo, cosa fa l’app, l’abbonamento Gusto Premium, la prova, come annullare e il recesso.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Termini d’uso · Gusto">
+<meta property="og:image" content="https://swipegusto.com/img/condivisione.jpg">
+<link rel="canonical" href="https://swipegusto.com/termini/">
+<meta name="theme-color" content="#F1EFEB">
+<link rel="icon" href="../img/icona-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="../img/icona-180.png">
+<link rel="preload" href="../caratteri/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../gusto.css">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../legale.css">
 </head>
-<body>
-<header class="site"><div class="wrap"><a class="brand" href="/">GUSTO</a><nav><a href="/privacy/">Privacy</a><a href="/termini/">Termini</a><a href="/support/">Supporto</a></nav></div></header>
-<main><div class="card"><h1>Condizioni di Servizio · Gusto</h1>
-<p><strong>Ultimo aggiornamento:</strong> 13 maggio 2026
-<strong>Versione documento:</strong> 1.0 (V1 launch draft)
-<strong>Versione in lingua inglese:</strong> <a href="/en/terms/">English version</a></p>
-<hr />
-<h2>1. Premessa</h2>
-<p>Le presenti Condizioni di Servizio ("Condizioni" o "ToS") regolano l'utilizzo dell'app "Gusto" per iOS e dei relativi servizi (di seguito "Servizio"), erogati da <strong>Gusto · Ben</strong> (di seguito "Gusto", "noi"). Scaricando, installando o usando l'app accetti integralmente queste Condizioni. Se non sei d'accordo, non installare l'app.</p>
-<p>Per il trattamento dei dati personali consulta l'<a href="/privacy/">Informativa sulla Privacy</a>.</p>
-<h2>2. Cosa fa Gusto</h2>
-<p>Gusto è un assistente per la pianificazione dietetica settimanale. In sintesi:</p>
-<ul>
-<li>Genera piani settimanali di pasti personalizzati su gusti, obiettivi, antropometrici, preferenze culturali e contesto.</li>
-<li>Tiene traccia dei pasti consumati, saltati, sostituiti o sgarri.</li>
-<li>Consente di scattare foto del corpo per stimare la composizione corporea (% massa grassa/magra) e foto del frigo per suggerimenti basati su ingredienti disponibili.</li>
-<li>Si integra con Apple Salute (HealthKit) per peso, calorie e idratazione.</li>
-<li>Offre una modalità PRO in abbonamento (<code>gusto.pro.monthly</code> €5,99/mese con prova gratuita 7 giorni) che sblocca generazione AI illimitata, ri-stima corpo periodica, advertising rimosso e altre funzioni avanzate.</li>
-</ul>
-<h2>3. Gusto NON è un dispositivo medico</h2>
-<p>⚠️ <strong>Importante.</strong> Gusto è uno strumento informativo e di supporto allo stile di vita. <strong>NON è un dispositivo medico</strong> ai sensi del Regolamento UE 2017/745 (MDR) né un servizio sanitario. <strong>Non sostituisce il parere di un medico, di un dietologo, di un nutrizionista o di un altro professionista qualificato.</strong></p>
-<p>Le stime caloriche, di composizione corporea, di macronutrienti, le raccomandazioni di piatti e i filtri legati a condizioni di salute (es. diabete, ipertensione, ipercolesterolemia) sono <strong>basate su euristiche, modelli statistici e modelli AI</strong> che possono produrre risultati imprecisi o non adatti alla tua situazione specifica.</p>
-<p><strong>Consulta sempre un professionista sanitario</strong> prima di:</p>
-<ul>
-<li>Iniziare una dieta ipocalorica o ipercalorica significativa</li>
-<li>Modificare la dieta in presenza di patologie (diabete, ipertensione, dislipidemie, malattie renali, gravidanza, allattamento, disturbi alimentari, allergie gravi, ecc.)</li>
-<li>Prendere decisioni cliniche basate su informazioni ricavate dall'app</li>
-</ul>
-<p>In caso di emergenza medica, contatta il 112 o il pronto soccorso più vicino. Gusto NON è un servizio di emergenza.</p>
-<h2>4. Età minima e capacità</h2>
-<p>Per usare Gusto devi avere almeno <strong>16 anni</strong> e la capacità giuridica di concludere contratti. Se sei minorenne, l'iscrizione non è consentita; se vieni a conoscenza di un account creato da un minore di 16 anni, segnalalo a <a href="mailto:support@swipegusto.com">support@swipegusto.com</a>.</p>
-<h2>5. Account e responsabilità dell'utente</h2>
-<ul>
-<li>L'autenticazione avviene tramite <strong>Sign in with Apple</strong>.</li>
-<li>Sei responsabile della riservatezza delle credenziali e di ogni attività compiuta dal tuo account.</li>
-<li>Ti impegni a fornire dati veritieri e aggiornati (peso, altezza, condizioni di salute dichiarate, ecc.). Dati falsi possono compromettere l'accuratezza del Servizio.</li>
-<li>Non puoi: (i) usare l'app per finalità illegali; (ii) effettuare reverse engineering, decompilare, disassemblare il codice; (iii) tentare di aggirare protezioni o sistemi di sicurezza; (iv) usare bot o scraper; (v) creare account multipli per aggirare i limiti free; (vi) caricare contenuti che violano diritti di terzi.</li>
-</ul>
-<h2>6. Abbonamento PRO e fatturazione</h2>
-<h3>6.1 Modalità free e PRO</h3>
-<p>Gusto è gratuita con funzionalità di base. La modalità PRO sblocca funzionalità avanzate descritte nella sezione 2.</p>
-<h3>6.2 Prova gratuita e rinnovo automatico</h3>
-<p>L'abbonamento PRO include una prova gratuita di 7 giorni. <strong>Al termine della prova l'abbonamento si rinnova automaticamente al prezzo indicato (€5,99/mese, prezzo soggetto a variazioni)</strong>, addebitato sul tuo account Apple ID. Il rinnovo è automatico salvo disdetta almeno 24 ore prima della fine del periodo in corso.</p>
-<h3>6.3 Gestione e cancellazione</h3>
-<p>La gestione e la cancellazione dell'abbonamento avvengono <strong>dalle Impostazioni del tuo account Apple ID</strong>: Impostazioni iOS → [Il tuo nome] → Abbonamenti → Gusto. Disinstallare l'app NON annulla l'abbonamento.</p>
-<h3>6.4 Diritto di recesso</h3>
-<p>L'art. 59.1(o) del Codice del Consumo italiano esclude il diritto di recesso per <strong>contenuti digitali forniti tramite supporto non materiale, se l'esecuzione è iniziata con il consenso espresso del consumatore</strong>. La prova gratuita di 7 giorni ti consente di valutare il Servizio prima dell'addebito. Il rimborso è gestito da Apple secondo le sue policy (reportaproblem.apple.com).</p>
-<h3>6.5 Prezzi e tasse</h3>
-<p>I prezzi indicati sono comprensivi di IVA salvo diversa indicazione. Apple gestisce l'addebito secondo i propri Termini di Servizio.</p>
-<h2>7. Proprietà intellettuale</h2>
-<ul>
-<li>Tutti i diritti su software, design, brand "Gusto", logo, catalogo piatti, ricette, contenuti generati da Gusto e codice sorgente sono di proprietà di Gusto.</li>
-<li>Ti concediamo una licenza <strong>personale, non esclusiva, non trasferibile, revocabile</strong> per usare l'app sui dispositivi Apple di cui sei proprietario o controlli, esclusivamente per uso non commerciale.</li>
-<li>I contenuti che generi tu (es. foto del corpo o del frigo, sgarri descritti, feedback) restano di tua proprietà. Ci concedi una licenza limitata a trattarli per le finalità descritte nell'Informativa Privacy.</li>
-</ul>
-<h2>8. Contenuti AI e suggerimenti</h2>
-<p>Gusto utilizza modelli di Intelligenza Artificiale (vision, linguaggio, ranking) per generare piani, stimare composizione corporea, analizzare sgarri e suggerire piatti. I contenuti AI:</p>
-<ul>
-<li>Possono contenere <strong>imprecisioni</strong> (errori di stima, suggerimenti non ideali, allergeni non rilevati nelle foto).</li>
-<li><strong>Non sostituiscono</strong> la lettura attenta delle etichette di prodotti reali, in particolare per allergeni o intolleranze.</li>
-<li>Sono forniti "<strong>as is</strong>", senza garanzie di esattezza, completezza o idoneità a uno scopo particolare.</li>
-</ul>
-<p>Se hai allergie gravi o condizioni di salute serie, NON affidarti esclusivamente ai suggerimenti dell'app: verifica sempre ingredienti e preparazione con fonti affidabili.</p>
-<h2>9. Integrazione Apple Salute (HealthKit)</h2>
-<p>L'integrazione con HealthKit è opzionale. Richiede il tuo consenso esplicito per ciascuna categoria (peso, calorie consumate, acqua, ecc.). Gusto <strong>non</strong> condivide i dati HealthKit con terze parti (esclusi i fornitori indicati in Privacy §6) e <strong>non li utilizza</strong> per advertising, in conformità con le <strong>HealthKit Guidelines</strong> di Apple.</p>
-<h2>10. Limitazioni di responsabilità</h2>
-<p>Nei limiti consentiti dal diritto applicabile:</p>
-<ul>
-<li>Gusto fornisce il Servizio "<strong>così com'è</strong>" e "<strong>come disponibile</strong>", senza garanzie esplicite o implicite di funzionamento ininterrotto, esente da errori o adatto a finalità specifiche.</li>
-<li>Gusto <strong>non sarà responsabile</strong> per: (i) danni indiretti, consequenziali, perdita di profitti, perdita di dati derivanti dall'uso o impossibilità di uso del Servizio; (ii) decisioni cliniche o nutrizionali prese in base ai contenuti dell'app; (iii) reazioni allergiche o problemi di salute derivanti dall'assunzione di alimenti suggeriti; (iv) imprecisioni o malfunzionamenti dei modelli AI; (v) interruzioni di servizio dovute a fornitori terzi (Supabase, Anthropic, Apple, Google).</li>
-<li>La responsabilità complessiva massima di Gusto, in qualsiasi caso, non potrà superare l'importo che hai pagato per il Servizio nei 12 mesi precedenti.</li>
-</ul>
-<p>Le presenti limitazioni <strong>non si applicano</strong> a: (a) danni causati con dolo o colpa grave, (b) responsabilità per morte o danni alla salute, (c) altre responsabilità non escludibili dalla legge italiana applicabile (art. 33 Codice del Consumo).</p>
-<h2>11. Sospensione e cessazione</h2>
-<ul>
-<li><strong>Tua iniziativa</strong>: puoi cessare di usare l'app in qualsiasi momento. Puoi cancellare l'account da "Profilo → Cancella account" (hard delete dei dati identificativi, anonimizzazione degli eventi comportamentali — vedi Privacy §5).</li>
-<li><strong>Nostra iniziativa</strong>: possiamo sospendere o terminare il tuo accesso, con un preavviso ragionevole, in caso di: (i) violazioni delle presenti Condizioni; (ii) attività fraudolenta o illegale; (iii) discontinuazione del Servizio (con preavviso minimo 30 giorni e possibilità di esportare i tuoi dati).</li>
-</ul>
-<h2>12. Modifiche al Servizio e alle Condizioni</h2>
-<p>Possiamo modificare il Servizio (aggiungere/rimuovere funzioni) per esigenze tecniche, di sicurezza o di prodotto. Per modifiche <strong>sostanziali</strong> alle presenti Condizioni, ti notificheremo in app con almeno <strong>30 giorni</strong> di anticipo. La prosecuzione dell'uso dopo la data di efficacia costituisce accettazione. Se non accetti, puoi cessare l'uso e cancellare l'account senza penalità.</p>
-<h2>13. Forza maggiore</h2>
-<p>Non saremo responsabili per inadempimenti dovuti a cause indipendenti dalla nostra volontà (es. interruzioni di rete, guasti dei fornitori cloud, decisioni delle autorità).</p>
-<h2>14. Legge applicabile e foro</h2>
-<p>Le presenti Condizioni sono regolate dalla <strong>legge italiana</strong>. Per ogni controversia, il foro competente è quello del <strong>luogo di residenza o domicilio del consumatore</strong>, se sei un consumatore residente in Italia o in altro Stato dell'UE (art. 66-bis Codice del Consumo). In tutti gli altri casi, il foro esclusivo è quello di Roma.</p>
-<p>Per la <strong>risoluzione alternativa delle controversie</strong> (ADR) puoi rivolgerti alla piattaforma europea ODR: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a>.</p>
-<h2>15. Clausole finali</h2>
-<ul>
-<li><strong>Nullità parziale</strong>: se una clausola dovesse risultare nulla o inefficace, le restanti restano valide.</li>
-<li><strong>Tolleranza</strong>: la mancata attivazione di un diritto non costituisce rinuncia.</li>
-<li><strong>Cessione</strong>: non puoi cedere a terzi questi accordi senza il nostro consenso. Noi possiamo cedere a un successore in caso di operazioni straordinarie.</li>
-</ul>
-<h2>16. Contatti</h2>
-<ul>
-<li><strong>Email supporto</strong>: <a href="mailto:support@swipegusto.com">support@swipegusto.com</a></li>
-<li><strong>Email privacy</strong>: <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a></li>
-<li><strong>Bug report / feedback</strong>: <a href="mailto:support@swipegusto.com">support@swipegusto.com</a> o GitHub Issues del progetto pubblico</li>
-</ul>
-<hr />
-<p><strong>Approvazione delle clausole vessatorie</strong> (artt. 1341 e 1342 c.c.): scaricando l'app dichiari di aver letto e specificamente accettato le clausole 3 (limiti uso non medico), 8 (contenuti AI as-is), 10 (limitazioni responsabilità), 11 (sospensione), 12 (modifiche unilaterali), 14 (foro).</p></div></main>
-<footer class="site"><div class="wrap">
-<div>© 2026 Gusto · swipegusto.com</div>
-<div><a href="/privacy/">Privacy</a><a href="/termini/">Termini</a><a href="/support/">Supporto</a></div>
-</div></footer>
+<body class="legale-pagina">
+<a class="salta" href="#contenuto">Salta al contenuto</a>
+<header class="barra">
+  <div class="contenitore">
+    <a class="marchio" href="../" aria-label="Gusto, pagina iniziale">Gusto</a>
+    <nav aria-label="Pagine legali">
+      <a href="../privacy/">Privacy</a>
+      <a href="../termini/" aria-current="page">Termini</a>
+      <a href="https://swipegusto.com/support/">Assistenza</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenuto" class="legale">
+  <div class="contenitore">
+    <h1>Termini d’uso</h1>
+    <p class="versione">Versione del 12 novembre 2026</p>
+
+    <nav class="indice" aria-label="In questa pagina">
+      <p>In questa pagina</p>
+      <ol>
+        <li><a href="#chi-siamo">Chi siamo</a></li>
+        <li><a href="#cosa-fa">Cosa fa Gusto</a></li>
+        <li><a href="#medico">Gusto non è un medico</a></li>
+        <li><a href="#chi-puo">Chi può usare Gusto</a></li>
+        <li><a href="#account">Il tuo account</a></li>
+        <li><a href="#non-puoi">Cosa non puoi fare</a></li>
+        <li><a href="#premium">Gusto Premium</a></li>
+        <li><a href="#recesso">Diritto di recesso</a></li>
+        <li><a href="#ia">Intelligenza artificiale</a></li>
+        <li><a href="#salute">Apple Salute</a></li>
+        <li><a href="#contenuti">Contenuti</a></li>
+        <li><a href="#garanzia">Garanzia e responsabilità</a></li>
+        <li><a href="#chiudere">Chiudere l’account</a></li>
+        <li><a href="#modifiche-servizio">Modifiche al servizio</a></li>
+        <li><a href="#modifiche-termini">Modifiche a questi Termini</a></li>
+        <li><a href="#cessione">Cessione</a></li>
+        <li><a href="#reclami">Reclami, legge e giudice</a></li>
+        <li><a href="#altre">Altre regole</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="chi-siamo">1. Chi siamo</h2>
+    <p>Gusto è offerto da Benito Calia («Gusto», «noi»).<br>
+    Contatti: assistenza <a href="mailto:support@swipegusto.com">support@swipegusto.com</a> · privacy <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>.</p>
+    <p>Questi Termini regolano l’uso dell’app Gusto per iPhone e del sito swipegusto.com. Si aggiungono al <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Contratto di licenza standard di Apple per le app</a>, che accetti quando scarichi l’app. Come trattiamo i tuoi dati è spiegato nell’<a href="../privacy/">Informativa privacy</a>.</p>
+    <p>Accetti questi Termini toccando «Inizia» nella prima schermata dell’app. Ti consigliamo di salvarli o stamparli. Se ci scrivi, ti mandiamo la versione che hai accettato.</p>
+    <p>Se usi Gusto come <strong>consumatore</strong>, cioè per scopi personali e non per lavoro, hai anche tutti i diritti che la legge ti dà e che nessun contratto può togliere. Niente in questi Termini li limita.</p>
+
+    <h2 id="cosa-fa">2. Cosa fa Gusto</h2>
+    <p>Gusto è un’app di dieta e cucina. Ti aiuta a:</p>
+    <ul>
+      <li>avere una dieta settimanale costruita sui tuoi gusti, sulle tue porzioni e sul tuo obiettivo;</li>
+      <li>segnare pasti, acqua e sgarri;</li>
+      <li>tenere la lista della spesa, il frigo e la dispensa;</li>
+      <li>fotografare il frigo e avere idee di piatti con quello che hai in casa;</li>
+      <li>se vuoi, collegare Apple Salute.</li>
+    </ul>
+    <p><strong>I numeri di Gusto sono stime.</strong> Kcal, porzioni, macronutrienti, fabbisogno e kcal di uno sgarro sono calcolati in automatico, con formule generali o con l’intelligenza artificiale, dai dati che inserisci tu. Non sono misure e non sono il parere di un professionista. Possono essere imprecisi.</p>
+    <p><strong>Cosa Gusto non promette.</strong> Gusto non promette di farti perdere o prendere peso, né in quanto tempo, né effetti sulla salute. Il risultato dipende da te, dal tuo corpo e da come segui la dieta.</p>
+    <p><strong>Le foto dei piatti</strong> che vedi nell’app e sul sito sono immagini generate con l’intelligenza artificiale: mostrano l’idea del piatto, non un piatto cucinato davvero.</p>
+    <p>Gusto funziona su iPhone con iOS 18 o successivo. Serve una connessione a internet.</p>
+
+    <h2 id="medico">3. Gusto non è un medico</h2>
+    <p>Gusto <strong>non è un dispositivo medico</strong>. Non serve a diagnosticare, prevenire, tenere sotto controllo, curare o attenuare malattie. Non è una prestazione sanitaria e non sostituisce medico, dietologo, dietista o nutrizionista.</p>
+    <p>Se ci dici una condizione di salute, togliamo dal menu i cibi che di solito si evitano in quel caso. Non è una terapia e non cura niente.</p>
+    <p><strong>Parla prima con un medico, e usa Gusto solo col suo via libera, se:</strong></p>
+    <ul>
+      <li>sei in gravidanza o allatti;</li>
+      <li>hai o hai avuto un disturbo dell’alimentazione (per esempio anoressia, bulimia, alimentazione incontrollata);</li>
+      <li>hai diabete, malattie di reni, fegato, cuore o tiroide, o un’altra malattia cronica;</li>
+      <li>prendi farmaci che dipendono da cosa mangi;</li>
+      <li>hai allergie alimentari gravi;</li>
+      <li>sei sottopeso.</li>
+    </ul>
+    <p>Se durante la dieta stai male, fermati e senti un medico. <strong>In caso di emergenza chiama il 112.</strong> Gusto non è un servizio di emergenza.</p>
+    <p><strong>Allergie e intolleranze.</strong> Gusto tiene conto di quelle che ci indichi. Però piatti e ricette si basano su dati generali, e i prodotti in commercio cambiano. Prima di mangiare controlla l’etichetta e gli ingredienti: le tracce Gusto non le vede. Gusto non può garantire che un piatto sia privo di un allergene.</p>
+
+    <h2 id="chi-puo">4. Chi può usare Gusto</h2>
+    <p>Per usare Gusto devi avere almeno 16 anni. Se hai meno di 18 anni serve il permesso di un genitore per abbonarti, e Gusto non ti propone di perdere o prendere peso: solo di mantenerlo.</p>
+    <p>Gusto è per uso personale. Non puoi usarlo per fare diete ad altre persone o per lavoro.</p>
+
+    <h2 id="account">5. Il tuo account</h2>
+    <ul>
+      <li>Puoi accedere con Apple, con Google o con la tua email.</li>
+      <li>I dati che inserisci (età, peso, altezza, allergie, condizioni di salute) devono essere veri e aggiornati. Con dati sbagliati anche la dieta è sbagliata.</li>
+      <li>L’account è personale e non si cede. Tieni al sicuro l’accesso. Se pensi che qualcuno lo usi al posto tuo, scrivici subito.</li>
+    </ul>
+
+    <h2 id="non-puoi">6. Cosa non puoi fare</h2>
+    <ul>
+      <li>usare Gusto per scopi illegali o contro questi Termini;</li>
+      <li>copiare, modificare, smontare o decompilare l’app, salvo i casi in cui la legge lo permette;</li>
+      <li>aggirare il pagamento, le protezioni o i limiti di Gusto;</li>
+      <li>usare bot, programmi automatici o raccolte massive di dati;</li>
+      <li>caricare foto di altre persone senza il loro permesso;</li>
+      <li>caricare contenuti offensivi, illegali o che violano i diritti di altri.</li>
+    </ul>
+
+    <h2 id="premium">7. Gusto Premium: abbonamento e pagamenti</h2>
+    <h3>7.1 Serve Gusto Premium</h3>
+    <p>Gusto non ha una versione gratuita. Per usare l’app serve <strong>Gusto Premium</strong>, annuale o mensile. La scelta compare all’ingresso: senza un abbonamento attivo o una prova in corso, l’app non si apre.</p>
+    <p>Anche senza abbonamento puoi sempre ripristinare un acquisto, leggere questi Termini e l’Informativa privacy, scriverci ed eliminare l’account.</p>
+
+    <h3>7.2 Prezzi</h3>
+    <p>Gusto Premium costa 69,99&nbsp;€ all’anno con 7 giorni gratis, oppure 14,99&nbsp;€ al mese senza prova.</p>
+    <div class="tabella">
+      <table>
+        <thead><tr><th scope="col">Piano</th><th scope="col">Prezzo</th><th scope="col">Prova gratuita</th></tr></thead>
+        <tbody>
+          <tr><td data-etichetta="Piano">Annuale</td><td data-etichetta="Prezzo">69,99&nbsp;€ all’anno</td><td data-etichetta="Prova gratuita">7 giorni</td></tr>
+          <tr><td data-etichetta="Piano">Mensile</td><td data-etichetta="Prezzo">14,99&nbsp;€ al mese</td><td data-etichetta="Prova gratuita">nessuna</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>In altri Paesi il prezzo può essere diverso: vale quello che l’App Store ti mostra prima di confermare.</p>
+
+    <h3>7.3 Chi gestisce il pagamento</h3>
+    <p>Compri Gusto Premium con il sistema di acquisto dell’App Store. In Italia la vendita passa da Apple Distribution International Ltd. (Irlanda), che incassa e gestisce i rimborsi secondo i <a href="https://www.apple.com/legal/internet-services/itunes/it/terms.html">Termini e condizioni dei servizi multimediali Apple</a>. Il servizio Gusto lo forniamo noi, e dei difetti del servizio rispondiamo noi. Noi non vediamo i dati della tua carta.</p>
+
+    <h3>7.4 La prova gratuita di 7 giorni</h3>
+    <ul>
+      <li>Vale solo per l’annuale, e una sola volta per Account Apple, secondo le regole di Apple.</li>
+      <li>Durante la prova hai Gusto Premium completo e non paghi niente.</li>
+      <li>Se non annulli la prova <strong>almeno 24 ore prima della fine</strong>, alla fine della prova parte l’annuale e Apple addebita <strong>69,99&nbsp;€</strong>.</li>
+      <li>Se hai acceso le notifiche, l’app ti manda un promemoria prima della fine della prova. È una cortesia: annullare resta una tua scelta.</li>
+    </ul>
+
+    <h3>7.5 Rinnovo automatico</h3>
+    <p>L’abbonamento si rinnova da solo alla fine di ogni periodo (un anno o un mese), allo stesso prezzo, salvo un cambio di prezzo come al punto 7.6, finché non lo annulli. Apple addebita il rinnovo nelle 24 ore prima della fine del periodo. Per fermarlo, annullalo almeno 24 ore prima.</p>
+
+    <h3>7.6 Se cambia il prezzo</h3>
+    <p>Possiamo cambiare il prezzo per i periodi futuri, per questi motivi: aumento dei costi (per esempio dei server o dell’intelligenza artificiale), inflazione, nuove funzioni, cambi di tasse. Il nuovo prezzo non vale mai per il periodo già pagato. Prima di un aumento ti avvisa Apple, secondo le sue regole. Se non sei d’accordo, puoi annullarlo senza costi prima che il nuovo prezzo si applichi.</p>
+
+    <h3>7.7 Come annullare</h3>
+    <ul>
+      <li>dall’iPhone: <strong>Impostazioni › il tuo nome › Abbonamenti › Gusto › Annulla abbonamento</strong>;</li>
+      <li>dall’app: <strong>Profilo › Gestisci abbonamento</strong>.</li>
+    </ul>
+    <p>Cancellare l’app o eliminare l’account <strong>non</strong> annulla l’abbonamento: va annullato da Apple.</p>
+    <p>Dopo che l’hai annullato, Gusto Premium resta attivo fino alla fine del periodo già pagato. Per il periodo già iniziato non c’è un rimborso parziale, salvo il recesso (punto 8), i casi dei punti 12, 13 e 14 e quelli che Apple concede.</p>
+
+    <h3>7.8 Ripristinare un acquisto</h3>
+    <p>Se cambi iPhone o reinstalli l’app: <strong>Profilo › Ripristina acquisti</strong>, oppure «Ripristina» nella schermata dell’abbonamento.</p>
+
+    <h3>7.9 Rimborsi</h3>
+    <p>I pagamenti passano da Apple, e quindi anche i rimborsi: chiedili da <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Se hai un problema con un rimborso, scrivici e ti aiutiamo.</p>
+
+    <h2 id="recesso">8. Diritto di recesso (14 giorni)</h2>
+    <p>Se sei un consumatore puoi recedere entro 14 giorni da quando attivi la prova o l’abbonamento, senza dare motivi.</p>
+    <p><strong>Come recedere.</strong> Puoi farlo da Apple (<strong>Account Apple › Cronologia acquisti</strong>, o il modulo di recesso di Apple, come spiegato nei <a href="https://www.apple.com/legal/internet-services/itunes/it/terms.html">Termini e condizioni dei servizi multimediali Apple</a>), o scrivendo a <a href="mailto:support@swipegusto.com">support@swipegusto.com</a>, anche con il modulo qui sotto. Ti confermiamo per email la ricezione, con data e ora. Basta che la tua comunicazione parta entro i 14 giorni.</p>
+    <p><strong>Cosa succede dopo.</strong> Il rimborso arriva entro 14 giorni, con lo stesso metodo di pagamento. L’accesso a Gusto Premium finisce. Se il rimborso non arriva entro 14 giorni, scrivici: ce ne occupiamo noi, come prevede la legge.</p>
+    <p>I rinnovi non riaprono i 14 giorni: per fermarli basta annullare l’abbonamento (punto 7.7).</p>
+    <p id="modulo"><strong>Modulo di recesso</strong> (compilalo e mandalo solo se vuoi recedere)</p>
+    <div class="modulo">
+      <p>A: Benito Calia, support@swipegusto.com</p>
+      <p>Con la presente comunico il recesso dal contratto per il servizio: abbonamento Gusto Premium (annuale / mensile).</p>
+      <p>Attivato il: __________</p>
+      <p>Nome e cognome: __________</p>
+      <p>Indirizzo: __________</p>
+      <p>Email dell’account Gusto: __________</p>
+      <p>Data: __________</p>
+      <p>Firma (solo se mandi il modulo su carta): __________</p>
+    </div>
+
+    <h2 id="ia">9. Intelligenza artificiale</h2>
+    <p>Alcune funzioni usano l’intelligenza artificiale del nostro fornitore Anthropic: scrivere la tua dieta settimanale, leggere le foto del frigo e dello sgarro, stimare le kcal e preparare alcuni testi (per esempio le schede dei piatti e la frase sul tuo obiettivo).</p>
+    <p>L’intelligenza artificiale può sbagliare: un ingrediente non riconosciuto, una kcal sbagliata, un piatto poco adatto. Controlla i risultati prima di usarli. Non prendere decisioni sulla salute solo in base a questi risultati.</p>
+    <p>Come trattiamo i tuoi dati e le foto: <a href="../privacy/#foto-ia">Informativa privacy, punto 5</a>.</p>
+
+    <h2 id="salute">10. Apple Salute</h2>
+    <p>Collegare Apple Salute è facoltativo. Se lo colleghi, Gusto legge il tuo peso e scrive le calorie dei pasti e l’acqua che segni. Decidi tu cosa condividere e puoi cambiare idea dalle impostazioni dell’iPhone. Non usiamo i dati di Apple Salute per pubblicità o marketing e non li vendiamo.</p>
+
+    <h2 id="contenuti">11. Contenuti</h2>
+    <ul>
+      <li><strong>I tuoi.</strong> Foto, pasti, preferenze e gli altri dati che inserisci restano tuoi. Ci dai il permesso di usarli solo per far funzionare Gusto per te, come spiegato nell’Informativa privacy. Possiamo usare dati aggregati e anonimi, che non ti identificano, per migliorare Gusto.</li>
+      <li><strong>I nostri.</strong> L’app, il marchio Gusto, il logo, il design, le ricette, le immagini e i testi sono nostri o di chi ce li ha concessi. Ti diamo una licenza personale, non esclusiva e non cedibile per usare Gusto sui tuoi dispositivi Apple, finché hai un account e rispetti questi Termini.</li>
+      <li><strong>I tuoi suggerimenti.</strong> Se ci mandi idee o suggerimenti, possiamo usarli liberamente per migliorare Gusto, senza compensi.</li>
+    </ul>
+
+    <h2 id="garanzia">12. Garanzia e responsabilità</h2>
+    <p><strong>12.1 La garanzia della legge.</strong> Come consumatore hai la garanzia legale di conformità per i servizi digitali (articoli 135-octies e seguenti del Codice del consumo). Se Gusto non funziona come descritto in questi Termini, scrivici: lo sistemiamo in un tempo ragionevole. Se non ci riusciamo, hai diritto a una riduzione del prezzo o a chiudere il contratto con il rimborso della parte non goduta, come prevede la legge.</p>
+    <p><strong>12.2 Il nostro impegno.</strong> Offriamo Gusto con attenzione e correggiamo i problemi in un tempo ragionevole. Gusto può fermarsi per poco tempo per manutenzione, aggiornamenti o sicurezza: cerchiamo di farlo quando disturba meno.</p>
+    <p><strong>12.3 Di cosa non rispondiamo.</strong> Non rispondiamo dei danni che non dipendono da noi, in particolare:</p>
+    <ul>
+      <li>uso di Gusto contro questi Termini o contro le avvertenze del punto 3;</li>
+      <li>dati sbagliati o incompleti inseriti da te (per esempio un’allergia non indicata);</li>
+      <li>guasti della rete, del telefono, di Apple o di altri servizi che non controlliamo, e cause di forza maggiore;</li>
+      <li>contenuti e servizi di terzi, come Apple Salute.</li>
+    </ul>
+    <p><strong>12.4 Cosa non limitiamo mai.</strong> Niente in questi Termini esclude o limita la nostra responsabilità per dolo o colpa grave, per morte o danni alla persona causati da un nostro fatto o da una nostra omissione, né i diritti che la legge ti dà come consumatore e che non si possono limitare.</p>
+
+    <h2 id="chiudere">13. Chiudere l’account</h2>
+    <ul>
+      <li><strong>Tu</strong> puoi smettere quando vuoi ed eliminare l’account da <strong>Profilo › Elimina account</strong>. Ricorda di annullare anche l’abbonamento (punto 7.7).</li>
+      <li><strong>Noi</strong> possiamo sospendere o chiudere il tuo account se violi questi Termini in modo serio o ripetuto, dopo averti avvisato e averti dato modo di rimediare. Possiamo farlo subito, senza preavviso, in caso di frode, attività illegali o rischi per la sicurezza di Gusto o di altre persone.</li>
+      <li><strong>Se chiudiamo Gusto</strong>, ti avvisiamo almeno 30 giorni prima, fermiamo i rinnovi e hai diritto al rimborso della parte di abbonamento già pagata e non goduta.</li>
+    </ul>
+
+    <h2 id="modifiche-servizio">14. Modifiche al servizio</h2>
+    <p>Gusto cambia nel tempo. Possiamo modificarlo per motivi validi: correzioni, sicurezza, obblighi di legge, miglioramenti, cambi dei fornitori. Le modifiche non ti costano niente in più.</p>
+    <p>Se una modifica peggiora in modo non trascurabile il tuo accesso o l’uso di Gusto, te lo diciamo prima, in modo chiaro e per email. In quel caso puoi recedere senza costi entro 30 giorni dall’avviso, o dalla modifica se arriva dopo, con il rimborso della parte già pagata e non goduta.</p>
+
+    <h2 id="modifiche-termini">15. Modifiche a questi Termini</h2>
+    <p>Possiamo aggiornare questi Termini per motivi validi: nuove leggi, nuove funzioni, sicurezza, testi più chiari. Se il cambio è importante, ti avvisiamo per email e nell’app almeno 30 giorni prima.</p>
+    <p>Se hai già un abbonamento, le nuove condizioni valgono dal primo rinnovo che arriva almeno 30 giorni dopo l’avviso. Se non sei d’accordo, basta annullare l’abbonamento prima di quel rinnovo. I cambi imposti dalla legge o necessari per la sicurezza possono valere prima.</p>
+
+    <h2 id="cessione">16. Cessione</h2>
+    <p>Possiamo trasferire questo contratto a un’altra persona o società che continui a offrire Gusto (per esempio se vendiamo l’app), senza ridurre le tue tutele. Te lo diciamo prima: se non sei d’accordo, puoi annullare l’abbonamento ed eliminare l’account. Tu non puoi cedere il tuo account o questi Termini ad altri.</p>
+
+    <h2 id="reclami">17. Reclami, legge e giudice</h2>
+    <p>Per un problema o un reclamo scrivi a <a href="mailto:support@swipegusto.com">support@swipegusto.com</a>: proviamo prima di tutto a risolverlo insieme.</p>
+    <p>Questi Termini seguono la legge italiana. Restano le tutele del Paese dell’Unione europea in cui vivi, che non si possono derogare. Se sei un consumatore decide il giudice del luogo dove abiti o hai domicilio, se è in Italia.</p>
+    <p>Non ci siamo impegnati a usare un organismo di risoluzione alternativa delle controversie.</p>
+
+    <h2 id="altre">18. Altre regole</h2>
+    <ul>
+      <li>Se una parte di questi Termini non è valida, il resto continua a valere.</li>
+      <li>Se non facciamo valere subito un diritto, non vuol dire che ci rinunciamo.</li>
+      <li>Questi Termini sono scritti in italiano. Se esiste una traduzione, in caso di differenze vale l’italiano.</li>
+    </ul>
+
+    <h2 id="contatti">19. Contatti</h2>
+    <ul>
+      <li>Assistenza: <a href="mailto:support@swipegusto.com">support@swipegusto.com</a></li>
+      <li>Privacy: <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a></li>
+      <li>Titolare: Benito Calia</li>
+    </ul>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenitore">
+    <p>© <span class="numeri">2026</span> Gusto, un servizio di Benito Calia · <a href="mailto:support@swipegusto.com">support@swipegusto.com</a></p>
+    <p><a href="../">Gusto</a> · <a href="../privacy/">Privacy</a> · <a href="../termini/">Termini</a> · <a href="https://swipegusto.com/support/">Assistenza</a></p>
+  </div>
+</footer>
 </body>
 </html>

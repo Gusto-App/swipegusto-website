@@ -1,353 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gusto — la dieta che sembra fatta da te</title>
-
-  <meta name="description" content="Ogni settimana Gusto costruisce un piano alimentare sui tuoi gusti, i tuoi obiettivi e il tempo che hai per cucinare. Senza rinunce inutili. Su iOS.">
-  <meta name="theme-color" content="#F1EFEB" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#171511" media="(prefers-color-scheme: dark)">
-
-  <!-- Open Graph / social -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Gusto">
-  <meta property="og:title" content="Gusto — la dieta che sembra fatta da te">
-  <meta property="og:description" content="Il piano alimentare settimanale sui tuoi gusti, i tuoi obiettivi e il tempo che hai per cucinare. Su iOS.">
-  <meta property="og:url" content="https://swipegusto.com/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="canonical" href="https://swipegusto.com/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234A6340'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='21' font-weight='600' fill='%23fff' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
-
-  <link rel="stylesheet" href="assets/css/tokens.css?v=2">
-  <link rel="stylesheet" href="assets/css/site.css?v=2">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--
+  GUSTO · VERSIONE 4 «DAL PIATTO» (UFF-544, 12/11/2026; rifinita in UFF-546 e UFF-553 coi testi legali di Livia del 12/11).
+  Pubblicata il 12/11/2026 (UFF-559), prima che l'app sia sull'App Store: al posto del bollino, «In arrivo sull'App Store».
+  L'avviso IA è fermo, visibile dal primo istante; Privacy e Termini in privacy/ e termini/.
+  L'idea: si parte dentro una carbonara fumante. Scorri, e la camera si allontana finché vedi il piatto sulla tavola; qualcuno
+  appoggia il telefono accanto, con Gusto aperto sulla stessa carbonara; tocchi «Cambia», scegli, e il piatto in tavola diventa
+  una tagliata; poi la camera si alza e vedi tutta la settimana. Una scena sola, continua: due riprese generate dalla stessa
+  foto (l'avvicinamento letto al contrario, poi la gru), il telefono in 3D con le schermate vere della prima schermata dell'app,
+  e un liquido che scopre il piatto nuovo.
+  Ferma (senza script, o con «Riduci movimento») la pagina è già tutta lì: il macro col titolo, poi i passi in fila con le foto.
+-->
+<title>Gusto: Mangia ciò che ami · Dieta, spesa, frigo e dispensa</title>
+<meta name="description" content="Gusto ti organizza i pasti della settimana con le kcal contate per te, scrive la lista della spesa e ti dice cosa cucinare con quello che hai in frigo.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Gusto: Mangia ciò che ami">
+<meta property="og:description" content="I pasti della settimana, la spesa e il frigo, in un’app per iPhone.">
+<meta property="og:image" content="https://swipegusto.com/img/condivisione.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://swipegusto.com/">
+<meta name="theme-color" content="#171C16">
+<link rel="icon" href="img/icona-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="img/icona-180.png">
+<link rel="preload" href="caratteri/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="film4/macro-1600.avif" as="image" type="image/avif" media="(orientation: landscape)" fetchpriority="high">
+<link rel="preload" href="film4/macro-900.avif" as="image" type="image/avif" media="(orientation: portrait)" fetchpriority="high">
+<link rel="stylesheet" href="gusto.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="libreria/lenis.css">
+<link rel="stylesheet" href="immersivo.css">
+<link rel="stylesheet" href="pagina.css">
+<link rel="stylesheet" href="scena.css">
+<!-- Le prove: in casa (mai online) l'indirizzo può cambiare una variabile, per confrontare varianti con «foto.mjs prove». -->
+<script>if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) for (const [k, v] of new URLSearchParams(location.search)) { try { if (k.startsWith("--")) document.documentElement.style.setProperty(k, v); else document.documentElement.setAttribute("data-" + k, v); } catch {} }</script>
+<script>document.documentElement.classList.add("vivo"); setTimeout(() => document.documentElement.classList.add("pronto"), 1500);</script>
+<script type="importmap">{ "imports": { "three": "./libreria/three.module.min.js" } }</script>
 </head>
 <body>
+<a class="salta" href="#contenuto">Salta al contenuto</a>
+<div class="avanza" aria-hidden="true"></div>
 
-  <!-- ══ Nav flottante (chrome tint + blur) ══ -->
-  <div class="nav-wrap">
-    <nav class="nav" aria-label="Principale">
-      <a href="#top" class="nav__brand">Gusto</a>
-      <div class="nav__links">
-        <a href="#come-funziona">Come funziona</a>
-        <a href="#funzionalita">Funzionalità</a>
-        <a href="#trasparenza">Trasparenza</a>
-        <a href="/support/">Supporto</a>
-      </div>
-      <a href="#scarica" class="btn btn--sm">Scarica</a>
+<header class="barra">
+  <div class="contenitore">
+    <a class="marchio" href="./" aria-label="Gusto, pagina iniziale">Gusto</a>
+    <nav aria-label="Principale">
+      <a href="#spesa">Spesa</a>
+      <a href="#frigo">Frigo</a>
+      <a href="#prezzi">Prezzi</a>
     </nav>
+    <a class="tasto" href="#scarica">In arrivo</a>
   </div>
+</header>
 
-  <main id="top">
-
-    <!-- ══ Hero ══ -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__grid">
-
-        <div class="hero__col">
-          <div class="eyebrow">Dieta settimanale personalizzata · su iOS</div>
-          <h1 id="hero-title" class="hero__title">La dieta che sembra <em>fatta da te</em>.</h1>
-          <p class="hero__lede">Ogni settimana Gusto costruisce un piano alimentare sui tuoi gusti, i tuoi obiettivi e il tempo che hai per cucinare. Senza rinunce inutili.</p>
-          <div class="hero__cta">
-            <a href="#" class="hero__cta-primary" aria-label="Scarica su App Store"><span class="btn btn--full">Scarica su App Store</span></a>
-            <a href="#come-funziona" class="hero__cta-ghost"><span class="btn btn--ghost">Come funziona</span></a>
+<main id="contenuto">
+  <!-- LA SCENA: dal piatto alla tavola. Il primo fotogramma (il macro) è un'immagine vera della pagina: è quella che si vede da fermi. -->
+  <section class="scena film dalpiatto" id="dalpiatto" data-aria="scura" aria-label="Dalla carbonara alla tavola della settimana">
+    <div class="cornice">
+      <picture>
+        <source media="(orientation: portrait)" srcset="film4/macro-900.avif" width="900" height="1593">
+        <img class="film__foto" src="film4/macro-1600.avif" width="1600" height="904" alt="Mezzi paccheri alla carbonara da vicinissimo: la pasta lucida di crema d'uovo e pecorino, i cubetti di guanciale, il pepe." fetchpriority="high">
+      </picture>
+      <canvas class="sequenza sequenza--push" aria-hidden="true"></canvas>
+      <canvas class="sequenza sequenza--gru" aria-hidden="true"></canvas>
+      <!-- Sul telefono, finita la gru, la camera gira di 90° e si allontana sulla stessa foto fino a tutta la tavola (la regia lo disegna qui). -->
+      <canvas class="sequenza sequenza--giro" aria-hidden="true"></canvas>
+      <!-- Il vapore: un video in ciclo (prima e ultimo fotogramma uguali al macro) che vive solo finché la camera è ferma in cima. L'indirizzo lo mette la regia, a movimento acceso: senza script resta la foto. -->
+      <video class="film__vapore" muted loop playsinline preload="none" width="1600" height="904" aria-hidden="true" tabindex="-1" disablepictureinpicture></video>
+      <canvas class="film__tela3d" aria-hidden="true"></canvas>
+      <div class="film__velo" aria-hidden="true"></div>
+      <figure class="lastra posto film__lastra" aria-hidden="true"><img src="img/viva-carbonara-540.avif" width="540" height="1171" alt="" loading="lazy"></figure>
+      <ol class="passi contenitore">
+        <li class="passo passo--apre">
+          <div class="passo__testo">
+            <p class="etichetta" data-apre>Dieta, spesa, frigo e dispensa</p>
+            <h1 data-apre>Mangia ciò che <em>ami.</em></h1>
+            <p class="guida" data-apre>Ti organizzo i pasti della settimana, con le kcal contate per te.</p>
+            <div data-apre><a class="tasto tasto--grande" href="#scarica">In arrivo su iPhone</a></div>
+            <!-- Livia, 12/11, riga 2: l’avviso sui contenuti generati va dato alla prima esposizione (reg. UE 2024/1689, art. 50, par. 5). -->
+            <!-- UFF-553: senza data-apre, così non aspetta il motore né l'ingresso del titolo: si vede insieme alla foto, dal primo istante. -->
+            <p class="nota film__ia">Foto e video dei piatti generati con l’IA.</p>
           </div>
-          <div class="hero__fineprint">Gratis con le funzioni di base · PRO 39,99 €/anno con 3 giorni di prova, o 9,90 €/mese</div>
-        </div>
-
-        <!-- Mockup iPhone: screenshot reale dell'app -->
-        <div class="mock-col">
-          <div class="phone">
-            <div class="phone__screen">
-              <img src="assets/img/app-scopri.jpeg" width="1000" height="2172" alt="Gusto, schermata Scopri: bruschetta al pomodoro e basilico, 83% di affinità" fetchpriority="high">
-            </div>
+        </li>
+        <li class="passo passo--stasera">
+          <div class="passo__testo">
+            <p class="etichetta"><b>01</b>Stasera</p>
+            <h2>Stasera, <em>carbonara.</em></h2>
+            <p class="guida">Apri Gusto: ti dico cosa cucinare, quanto ci vuole e se hai già tutto.</p>
           </div>
-        </div>
+          <div class="passo__fermo">
+            <img class="passo__foto" src="tavole4/carbonara-1600.avif" width="1600" height="900" alt="La ciotola di mezzi paccheri alla carbonara sul tavolo di rovere al sole; dietro, sfocati, la cacio e pepe, la tagliata e la pizza." loading="lazy">
+            <figure class="schermata passo__schermata"><img src="img/viva-carbonara-1080.avif" srcset="img/viva-carbonara-540.avif 540w, img/viva-carbonara-1080.avif 1080w" sizes="(max-width: 60rem) 40vw, 14vw" width="1080" height="2341" alt="La prima schermata di Gusto: la foto della carbonara a tutta schermata e sotto «Stasera · Spaghetti alla carbonara · 25 min · hai già tutto», col tasto Cambia." loading="lazy"></figure>
+          </div>
+        </li>
+        <li class="passo passo--cambia">
+          <div class="passo__testo">
+            <p class="etichetta"><b>02</b>Cambia</p>
+            <h2>Non ti va? Tocca <em>Cambia.</em></h2>
+            <p class="guida">Ti propongo altri tre piatti. Scegli, e il nuovo prende il suo posto in tavola.</p>
+          </div>
+          <div class="passo__fermo">
+            <img class="passo__foto" src="tavole4/tagliata-1600.avif" width="1600" height="900" alt="La stessa ciotola, con una tagliata di manzo su rucola e patate al forno al posto della carbonara." loading="lazy">
+            <figure class="schermata passo__schermata"><img src="img/viva-vassoio-1080.avif" srcset="img/viva-vassoio-540.avif 540w, img/viva-vassoio-1080.avif 1080w" sizes="(max-width: 60rem) 40vw, 14vw" width="1080" height="2341" alt="Dopo il tocco su Cambia: tre piatti in tondo da scegliere, tagliata, cacio e pepe e pizza." loading="lazy"></figure>
+          </div>
+        </li>
+        <li class="passo passo--settimana">
+          <div class="passo__testo">
+            <p class="etichetta"><b>03</b>La settimana</p>
+            <h2>Tutta la settimana, <em>in tavola.</em></h2>
+            <p class="guida">Colazione, pranzo e cena, già decise con le tue kcal. Tu devi solo cucinare.</p>
+          </div>
+          <picture class="film__fine">
+            <source media="(orientation: portrait)" srcset="film5/fine-900.avif" width="900" height="1600">
+            <img src="film5/fine-1600.avif" width="1600" height="904" alt="La tavola vista dall'alto: la tagliata, la cacio e pepe, la pizza margherita, gli gnocchi, il risotto allo zafferano, il bicchiere." loading="lazy">
+          </picture>
+        </li>
+      </ol>
+      <p class="segno" aria-hidden="true"><span><span data-segno>1</span> di 4</span><span class="segno__filo"><span data-filo></span></span></p>
+    </div>
+  </section>
 
+  <!-- LA SPESA: il sipario di giorno. Testo a sinistra, la Lista vera, nuda, a destra. -->
+  <section class="spesa sezione--grande" id="spesa">
+    <div class="contenitore griglia">
+      <div class="spesa__testo">
+        <p class="etichetta"><b>04</b>La spesa</p>
+        <h2 data-righe>La spesa la scrivo <em>io.</em></h2>
+        <p class="guida" data-entra>Dal piano alla lista: mancano 9 cose, circa 12 €, divise per corsia.</p>
+        <p class="spesa__nota" data-entra>Quello che hai già in casa non lo compri due volte.</p>
       </div>
-    </section>
+      <figure class="spesa__lista" data-entra>
+        <div class="schermata"><img src="img/lista-1080.avif" srcset="img/lista-540.avif 540w, img/lista-1080.avif 1080w" sizes="(max-width: 60rem) 70vw, 26vw" width="1080" height="2347" alt="La Lista della spesa: mancano 9 cose, circa 12 euro, divise per corsia." loading="lazy"></div>
+        <figcaption class="nota">La Lista: per corsia o per piatto.</figcaption>
+      </figure>
+    </div>
+  </section>
 
-    <!-- ══ Come funziona ══ -->
-    <section id="come-funziona" class="band" aria-labelledby="come-funziona-title">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Come funziona</div>
-          <h2 id="come-funziona-title" class="section-title">Tre passi, poi ci pensa Gusto.</h2>
-        </div>
-        <div class="steps">
-          <div class="card">
-            <div class="step">
-              <div class="step__num">01</div>
-              <div class="step__title">Racconti i tuoi gusti</div>
-              <p class="step__text">Allergie, ingredienti che non sopporti, quanto tempo hai per cucinare. Due minuti, una volta sola.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="step">
-              <div class="step__num">02</div>
-              <div class="step__title">Ricevi il piano della settimana</div>
-              <p class="step__text">Sette giorni di colazioni, pranzi e cene calibrati sul tuo fabbisogno. Ogni settimana, di nuovo.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="step">
-              <div class="step__num">03</div>
-              <div class="step__title">Registri con un tocco</div>
-              <p class="step__text">Mangiato, sostituito, saltato. Anche l'acqua e gli sgarri: un tocco e il piano si riallinea.</p>
-            </div>
-          </div>
-        </div>
+  <!-- I PIATTI: otto piatti veri del catalogo, nella loro foto. Una fila che scorre di lato mentre scendi (sul computer); col dito sul telefono. -->
+  <section class="piatti di-lato" id="piatti" aria-labelledby="piatti-titolo">
+    <div class="cornice">
+      <div class="contenitore piatti__testa">
+        <p class="etichetta"><b>05</b>I piatti</p>
+        <h2 id="piatti-titolo">Dalla colazione alla <em>cena.</em></h2>
+        <p class="guida">Otto dei piatti che ti posso proporre, da cucinare a casa.</p>
       </div>
-    </section>
+      <ul class="fila" data-pista>
+        <li class="carta"><img src="piatti/spaghetti-alla.avif" width="640" height="640" alt="" loading="lazy"><p>Spaghetti alla carbonara</p></li>
+        <li class="carta"><img src="piatti/tagliata-controfiletto.avif" width="640" height="640" alt="" loading="lazy"><p>Tagliata con rucola e grana</p></li>
+        <li class="carta"><img src="piatti/pizza-margherita.avif" width="640" height="640" alt="" loading="lazy"><p>Pizza margherita napoletana</p></li>
+        <li class="carta"><img src="piatti/gnocchi-alla.avif" width="640" height="640" alt="" loading="lazy"><p>Gnocchi alla sorrentina</p></li>
+        <li class="carta"><img src="piatti/tiramisu-classico.avif" width="640" height="640" alt="" loading="lazy"><p>Tiramisù classico</p></li>
+        <li class="carta"><img src="piatti/risotto-zafferano.avif" width="640" height="640" alt="" loading="lazy"><p>Risotto con ossobuco</p></li>
+        <li class="carta"><img src="piatti/tonnarelli-cacio.avif" width="640" height="640" alt="" loading="lazy"><p>Tonnarelli cacio e pepe</p></li>
+        <li class="carta"><img src="piatti/cannoli-siciliani.avif" width="640" height="640" alt="" loading="lazy"><p>Cannoli con ricotta e pistacchio</p></li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- ══ Dentro l'app ══ -->
-    <section id="dentro-app" class="screens-section" aria-labelledby="dentro-app-title">
-      <div class="screens-head">
-        <div class="eyebrow">Dentro l'app</div>
-        <h2 id="dentro-app-title" class="section-title">Com'è, davvero.</h2>
+  <!-- IL FRIGO, DI SERA: la pagina si spegne come una cucina dopo cena. Due schermate vere, nude, una più in basso dell'altra. -->
+  <section class="frigo sezione--grande" id="frigo" data-aria="scura">
+    <div class="contenitore griglia">
+      <div class="frigo__testo">
+        <p class="etichetta"><b>06</b>Frigo e dispensa</p>
+        <h2 data-righe>Frigo mezzo vuoto? <em>Fotografalo.</em></h2>
+        <p class="guida" data-entra>Riconosco gli ingredienti dalla foto e ti dico cosa ci cucini.</p>
+        <p class="frigo__nota" data-entra>La Dispensa ti avvisa quando un ingrediente arriverebbe tardi, e ti propone di anticipare il piatto.</p>
       </div>
-      <div class="screens-row" role="list" tabindex="0" aria-label="Schermate dell'app">
-        <figure class="screen" role="listitem">
-          <div class="screen__frame">
-            <div class="screen__screen">
-              <img src="assets/img/app-piano-settimana.jpeg" width="1000" height="2172" loading="lazy" alt="Gusto, tab Pianifica: il piano del mercoledì con tre pasti e calorie">
-            </div>
-          </div>
-          <figcaption>
-            <div class="screen__caption-title">Il piano della settimana</div>
-            <div class="screen__caption-text">Colazione, pranzo e cena, giorno per giorno.</div>
-          </figcaption>
-        </figure>
-        <figure class="screen" role="listitem">
-          <div class="screen__frame">
-            <div class="screen__screen">
-              <img src="assets/img/app-fridge-challenge.jpeg" width="1000" height="2172" loading="lazy" alt="Gusto, Fridge Challenge: scatta una foto al frigo o scrivi gli ingredienti">
-            </div>
-          </div>
-          <figcaption>
-            <div class="screen__caption-title">Fridge Challenge</div>
-            <div class="screen__caption-text">Una foto al frigo e cucini con quello che hai.</div>
-          </figcaption>
-        </figure>
-        <figure class="screen" role="listitem">
-          <div class="screen__frame">
-            <div class="screen__screen">
-              <img src="assets/img/app-ricette-tappe.jpeg" width="1000" height="2172" loading="lazy" alt="Gusto, preparazione a tappe di una ricetta con percorso e sfide">
-            </div>
-          </div>
-          <figcaption>
-            <div class="screen__caption-title">Ricette a tappe</div>
-            <div class="screen__caption-text">La preparazione diventa un percorso.</div>
-          </figcaption>
-        </figure>
-        <figure class="screen" role="listitem">
-          <div class="screen__frame">
-            <div class="screen__screen">
-              <img src="assets/img/app-sfida-timer.jpeg" width="1000" height="2172" loading="lazy" alt="Gusto, sfida col timer: tappa 2, condisci i pomodori, 9 minuti e 48">
-            </div>
-          </div>
-          <figcaption>
-            <div class="screen__caption-title">Sfide col timer</div>
-            <div class="screen__caption-text">Lui conta i minuti, tu pensi ai fornelli.</div>
-          </figcaption>
-        </figure>
+      <figure class="schermata frigo__grande"><img src="img/frigo-1080.avif" srcset="img/frigo-540.avif 540w, img/frigo-1080.avif 1080w" sizes="(max-width: 60rem) 62vw, 22vw" width="1080" height="2347" alt="Dal tuo frigo: 7 ingredienti trovati, uova, zucchine, patate e altri 4. La proposta è una frittata al forno di zucchine e patate, 29 minuti, hai già tutto." loading="lazy"></figure>
+      <figure class="schermata frigo__piccola"><img src="img/dispensa-1080.avif" srcset="img/dispensa-540.avif 540w, img/dispensa-1080.avif 1080w" sizes="(max-width: 60rem) 44vw, 22vw" width="1080" height="2347" alt="La Dispensa: 14 ingredienti, 1 da usare presto. Gli spinaci freschi arriverebbero tardi per il minestrone di domenica: anticipalo a sabato." loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- I PREZZI: due righe, coi numeri del listino dell'app (PaywallListino.swift, riletto l'11/11/2026). Il dubbio sotto il prezzo. -->
+  <section class="prezzi sezione--ampia" id="prezzi">
+    <div class="contenitore griglia">
+      <div class="prezzi__testo">
+        <p class="etichetta"><b>07</b>Gusto Premium</p>
+        <h2 data-righe>Una settimana per <em>provarlo.</em></h2>
       </div>
-    </section>
-
-    <!-- ══ Funzionalità ══ -->
-    <section id="funzionalita" class="container" aria-labelledby="funzionalita-title">
-      <div class="section-head">
-        <div class="eyebrow">Funzionalità</div>
-        <h2 id="funzionalita-title" class="section-title">I numeri che servono. Niente di più.</h2>
-      </div>
-
-      <div class="features">
-
-        <!-- Macro -->
-        <div class="card">
-          <div class="feature">
-            <div class="feature__preview">
-              <div class="macrobar">
-                <div class="macrobar__meta">
-                  <span class="macrobar__label">P</span>
-                  <span class="macrobar__value">45 / 64 g</span>
-                </div>
-                <div class="macrobar__track"><div class="macrobar__fill macrobar__fill--protein" style="width:70.3%"></div></div>
-              </div>
-              <div class="macrobar">
-                <div class="macrobar__meta">
-                  <span class="macrobar__label">C</span>
-                  <span class="macrobar__value">92 / 128 g</span>
-                </div>
-                <div class="macrobar__track"><div class="macrobar__fill macrobar__fill--carbs" style="width:71.9%"></div></div>
-              </div>
-              <div class="macrobar">
-                <div class="macrobar__meta">
-                  <span class="macrobar__label">G</span>
-                  <span class="macrobar__value">44 / 63 g</span>
-                </div>
-                <div class="macrobar__track"><div class="macrobar__fill macrobar__fill--fat" style="width:69.8%"></div></div>
-              </div>
-            </div>
-            <div class="feature__title">Macro a colpo d'occhio</div>
-            <p class="feature__text">Proteine, carboidrati e grassi della giornata, sempre aggiornati. I numeri, senza cerimonie.</p>
-          </div>
-        </div>
-
-        <!-- Sgarro -->
-        <div class="card">
-          <div class="feature">
-            <div class="feature__preview">
-              <div class="banner banner--negative" role="status">
-                <span class="banner__icon" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 20h16a2 2 0 0 0 1.73-2Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
-                </span>
-                <div>
-                  <div class="banner__title">Sgarro registrato</div>
-                  <div class="banner__text">Non fa niente — domani si riparte.</div>
-                </div>
-              </div>
-            </div>
-            <div class="feature__title">Lo sgarro è previsto</div>
-            <p class="feature__text">Lo racconti a voce o per iscritto: Gusto stima calorie e macro e riadatta il piano. Senza sensi di colpa.</p>
-          </div>
-        </div>
-
-        <!-- Allergeni -->
-        <div class="card">
-          <div class="feature">
-            <div class="feature__preview feature__preview--chips">
-              <span class="chip chip--allergen">Lattosio</span>
-              <span class="chip chip--allergen">Glutine</span>
-              <span class="chip chip--allergen">Frutta a guscio</span>
-              <span class="chip chip--meal"><span class="chip__dot chip__dot--pranzo"></span>Pranzo</span>
-            </div>
-            <div class="feature__title">Allergeni dichiarati</div>
-            <p class="feature__text">Ogni piatto espone i suoi allergeni, sempre. Con allergie serie, verifica comunque l'etichetta.</p>
-          </div>
-        </div>
-
-        <!-- Acqua (interattivo) -->
-        <div class="card">
-          <div class="feature">
-            <div class="feature__preview">
-              <div>
-                <div class="water-head">
-                  <span class="water-head__label">Acqua</span>
-                  <span class="water-head__value" data-water-label>0,8 / 2,0 L</span>
-                </div>
-                <div class="macrobar__track"><div class="macrobar__fill macrobar__fill--water" style="width:40%" data-water-fill></div></div>
-              </div>
-              <div class="water-buttons">
-                <button type="button" class="btn btn--ghost btn--sm" data-water-add="250">+ 250 ml</button>
-                <button type="button" class="btn btn--ghost btn--sm" data-water-add="500">+ 500 ml</button>
-                <button type="button" class="btn btn--ghost btn--sm" data-water-add="750">+ 750 ml</button>
-              </div>
-            </div>
-            <div class="feature__title">Anche l'acqua conta</div>
-            <p class="feature__text">Obiettivo giornaliero e registro delle aggiunte. Due tocchi e via — provalo qui sopra.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ══ Trasparenza ══ -->
-    <section id="trasparenza" class="band" aria-labelledby="trasparenza-title">
-      <div class="container transparency">
-        <div class="transparency__col">
-          <div class="eyebrow">Trasparenza</div>
-          <h2 id="trasparenza-title" class="section-title">I tuoi dati, con cura.</h2>
-          <p class="transparency__lede">Li trattiamo solo per darti un servizio migliore, e lo spieghiamo per esteso, in chiaro.</p>
-          <div class="checklist">
-            <div class="checklist__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke: var(--positive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-              <span>I dati sulla salute si trattano solo col tuo consenso esplicito, revocabile quando vuoi.</span>
-            </div>
-            <div class="checklist__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke: var(--positive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-              <span>Le foto del corpo e del frigo sono elaborate al volo, mai conservate.</span>
-            </div>
-            <div class="checklist__item">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke: var(--positive)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-              <span>Cancelli l'account quando vuoi, dall'app. Niente pubblicità comportamentale, niente vendita di dati.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card card--flush">
-          <a href="/privacy/" class="doclink">
-            <div class="doclink__main">
-              <div class="doclink__title">Informativa sulla privacy</div>
-              <div class="doclink__meta">Cosa raccogliamo, perché, per quanto</div>
-            </div>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke: var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
-          </a>
-          <div class="doclist__divider"></div>
-          <a href="/termini/" class="doclink">
-            <div class="doclink__main">
-              <div class="doclink__title">Condizioni di servizio</div>
-              <div class="doclink__meta">Cosa fa Gusto, abbonamento PRO, limiti</div>
-            </div>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke: var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
-          </a>
-          <div class="doclist__divider"></div>
-          <a href="/support/" class="doclink">
-            <div class="doclink__main">
-              <div class="doclink__title">Assistenza</div>
-              <div class="doclink__meta">Domande frequenti e contatti</div>
-            </div>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke: var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
-          </a>
-          <div class="doclist__divider"></div>
-          <a href="/privacy/" class="doclink">
-            <div class="doclink__main">
-              <div class="doclink__title">Privacy e cookie del sito</div>
-              <div class="doclink__meta">Solo cookie tecnici, note legali del sito</div>
-            </div>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke: var(--text-tertiary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
-          </a>
-          <div class="doclist__en">In English: <a href="/en/privacy/">Privacy Policy (EN)</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CTA finale ══ -->
-    <section id="scarica" class="container" aria-labelledby="scarica-title">
-      <div class="cta-final">
-        <h2 id="scarica-title" class="cta-final__title">Il piano della prossima settimana è pronto in due minuti.</h2>
-        <p class="cta-final__lede">Scarica Gusto, racconta i tuoi gusti e lascia che la spesa si scriva da sola.</p>
-        <a href="#" class="btn" style="margin-top:6px">Scarica su App Store</a>
-        <div class="cta-final__note">Richiede iOS · gratis con le funzioni di base</div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ══ Footer ══ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <div class="footer__brand-name">Gusto</div>
-          <div class="footer__brand-tag">La dieta settimanale personalizzata sui tuoi gusti. Su iOS.</div>
-        </div>
-        <nav class="footer__links" aria-label="Legale">
-          <a href="/privacy/">Privacy</a>
-          <a href="/termini/">Termini</a>
-          <a href="/privacy/">Note legali</a>
-          <a href="/support/">Supporto</a>
-          <a href="/en/privacy/" class="footer__link-en">Privacy (EN)</a>
-        </nav>
-      </div>
-      <div class="footer__legal">
-        <span>© 2026 Gusto · swipegusto.com</span>
-        <span>Gusto è un'app di benessere alimentare e non fornisce consigli medici. Consulta il tuo medico prima di modificare la tua alimentazione.</span>
+      <dl class="prezzi__righe">
+        <div class="prezzi__riga"><dt>Annuale</dt><dd class="prezzi__cifra numeri">69,99&nbsp;€ <span>l’anno</span></dd><dd class="prezzi__dice">Con 7 giorni di prova</dd></div>
+        <div class="prezzi__riga"><dt>Mensile</dt><dd class="prezzi__cifra numeri">14,99&nbsp;€ <span>al mese</span></dd><dd class="prezzi__dice">Senza prova</dd></div>
+      </dl>
+      <!-- Livia, 12/11, riga 3: rinnovo automatico, prova una sola volta, recesso. -->
+      <!-- UFF-553: le stesse parole di Livia, in tre pezzi corti (rinnovo e annullamento · la prova · il recesso): si leggono meglio sul telefono. -->
+      <div class="prezzi__nota prezzi__nota--tre nota">
+        <p>L’abbonamento si rinnova da solo, ogni anno o ogni mese, finché non lo annulli. Lo annulli quando vuoi da Impostazioni, toccando il tuo nome e poi Abbonamenti.</p>
+        <p>La prova gratuita vale una sola volta per Account Apple: se la annulli almeno 24 ore prima che finisca, non paghi niente; se no, alla fine della prova parte l’annuale da 69,99&nbsp;€.</p>
+        <p>Se sei un consumatore hai 14 giorni per recedere, senza dare motivi: come e da quando, lo trovi nei <a href="termini/">Termini</a>.</p>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="assets/js/site.js?v=2" defer></script>
+  <!-- LA CHIUSURA: il colore della marca, l'invito, e il nome grande quanto la pagina. -->
+  <section class="chiude" id="scarica" data-aria="colore">
+    <div class="contenitore">
+      <p class="etichetta"><b>08</b>In arrivo</p>
+      <h2 data-righe>Ci vediamo a <em>tavola.</em></h2>
+      <!-- L'app non è ancora sull'App Store: al posto del bollino di Apple («Scarica su App Store») una riga di testo. Il giorno dell'uscita
+           torna il bollino ufficiale (img/scarica-su-app-store.svg) col suo indirizzo. Livia, 12/11, riga 4: il prezzo si legge col rinnovo. -->
+      <p class="chiude__azione" data-entra><span class="in-arrivo">In arrivo sull’App Store</span><span class="nota">Per iPhone. 7 giorni di prova, poi 69,99&nbsp;€ l’anno, con rinnovo automatico finché non lo annulli.</span></p>
+      <p class="firma" aria-hidden="true" data-controllo="no">Gusto</p>
+    </div>
+    <img class="chiude__piatto strato" style="--v: -0.4" src="piatto/carbonara-800.avif" width="800" height="700" alt="" loading="lazy">
+  </section>
+</main>
+
+<footer class="pie" data-aria="colore">
+  <div class="contenitore">
+    <!-- Livia, 12/11, riga 1: chi vende e i contenuti generati (reg. UE 2024/1689, art. 50). -->
+    <p>© <span class="numeri">2026</span> Gusto, un servizio di Benito Calia · <a href="mailto:support@swipegusto.com">support@swipegusto.com</a> · Foto e video dei piatti generati con l’intelligenza artificiale · <a href="privacy/">Privacy</a> · <a href="termini/">Termini</a> · <a href="https://swipegusto.com/support/">Assistenza</a></p>
+    <!-- Livia, 12/11, riga 7: la riga dei marchi di Apple, una volta sola nel sito. -->
+    <p class="pie__marchi">Apple, il logo Apple e iPhone sono marchi di Apple Inc., registrati negli Stati Uniti e in altri Paesi. App Store è un marchio di servizio di Apple Inc.</p>
+  </div>
+</footer>
+
+<script defer src="libreria/gsap.min.js"></script>
+<script defer src="libreria/ScrollTrigger.min.js"></script>
+<script defer src="libreria/SplitText.min.js"></script>
+<script defer src="libreria/lenis.min.js"></script>
+<script defer src="motore.js"></script>
+<script type="module" src="regia.js"></script>
 </body>
 </html>

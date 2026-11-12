@@ -1,0 +1,127 @@
+/* BASE DI UN SITO: le fondamenta che un team vero non rifà ogni volta. Copia tutta la cartella `sito/`, poi:
+   1. cambia i colori e i caratteri qui sotto con quelli della marca (per Gusto: vedi `gusto.md`);
+   2. scrivi la pagina in index.html; lo stile della pagina sta nel suo <style>, o in un file tuo. Qui si tocca solo `:root`.
+   Le eccezioni alle regole della skill si scrivono qui in cima, una riga l'una («tengo X perché Y»), al massimo tre. */
+
+:root {
+  /* Colori: ognuno ha un mestiere. */
+  --fondo: #f6f4ef;            /* la pagina */
+  --fondo-alto: #ffffff;       /* una superficie alzata: un campo, una scheda */
+  --fondo-tinto: #ecebe4;      /* una fascia che stacca */
+  --inchiostro: #1d1c1a;       /* il testo */
+  --inchiostro-2: #55524c;     /* il testo secondario: almeno 4,5 a 1 sul fondo */
+  --filo: color-mix(in srgb, var(--inchiostro) 14%, transparent);
+  --azione: #2f5d3a;           /* un colore solo per l'azione principale */
+  --su-azione: #ffffff;
+
+  /* Caratteri: due famiglie, tre pesi in tutto. Ospitati qui, in `caratteri/`, mai da un server di altri. */
+  --titoli: Georgia, "Times New Roman", serif;
+  --testo: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --peso-titoli: 600;
+
+  /* Scala a 1,25 da 16 px. Fluidi solo i titoli grandi e il testo. A 1440: manifesto 84, sezione 52, voce 25, guida 21, testo 18. */
+  --t-manifesto: clamp(2.75rem, 1.5rem + 5vw, 5.25rem);
+  --t-sezione: clamp(2.125rem, 1.4rem + 2.6vw, 3.25rem);
+  --t-voce: 1.5625rem;
+  --t-guida: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
+  --t-testo: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --t-nota: 0.875rem;
+
+  /* Spazi. Il margine va da 16 (telefono) a 64 (computer). Tre respiri fra le sezioni, da mescolare: mai tutti uguali. */
+  --margine: clamp(1rem, 4.4vw, 4rem);
+  --respiro-1: clamp(3.5rem, 8.4vw, 7.5rem);
+  --respiro-2: clamp(4.5rem, 10vw, 9rem);
+  --respiro-3: clamp(6rem, 12.2vw, 11rem);
+  --passo: clamp(1rem, 2.2vw, 2rem);
+  --raggio: 14px;
+
+  /* Movimento: tre durate e una curva. Si animano solo transform e opacity. */
+  --veloce: 120ms;
+  --medio: 220ms;
+  --lento: 420ms;
+  --curva: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 5.5rem; }
+body {
+  margin: 0; background: var(--fondo); color: var(--inchiostro);
+  font: 400 var(--t-testo)/1.6 var(--testo);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-synthesis: none;
+}
+h1, h2, h3, h4 { margin: 0; font-family: var(--titoli); font-weight: var(--peso-titoli); line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; }
+h1 { font-size: var(--t-manifesto); max-width: 20ch; }
+h2 { font-size: var(--t-sezione); max-width: 30ch; }
+h3 { font-size: var(--t-voce); line-height: 1.2; max-width: 40ch; }
+p, li { margin: 0; max-width: 65ch; text-wrap: pretty; }
+.guida { font-size: var(--t-guida); line-height: 1.5; color: var(--inchiostro-2); }
+.nota { font-size: var(--t-nota); color: var(--inchiostro-2); }
+.numeri { font-variant-numeric: tabular-nums; }
+img, video, svg { display: block; max-width: 100%; height: auto; }
+
+/* Le superfici del browser: il segno più economico di un sito curato. */
+::selection { background: color-mix(in srgb, var(--azione) 24%, transparent); color: var(--inchiostro); }
+:focus-visible { outline: 3px solid var(--azione); outline-offset: 3px; border-radius: 4px; }
+a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.2em; }
+input, textarea { caret-color: var(--azione); }
+
+/* Il primo Tab: salta al contenuto. */
+.salta { position: absolute; left: 1rem; top: -5rem; z-index: 100; padding: 0.75rem 1rem; border-radius: 8px; background: var(--inchiostro); color: var(--fondo); }
+.salta:focus { top: 1rem; }
+
+/* Un contenitore solo: 1312 di contenuto al massimo. A 1920 crescono i margini, non le righe. */
+.contenitore { width: min(100% - 2 * var(--margine), 82rem); margin-inline: auto; }
+.griglia { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--passo); }
+.sezione { padding-block: var(--respiro-1); }
+.sezione--ampia { padding-block: var(--respiro-2); }
+.sezione--grande { padding-block: var(--respiro-3); }
+.sezione--tinta { background: var(--fondo-tinto); }
+@media (max-width: 60rem) { .griglia > * { grid-column: 1 / -1 !important; } }
+
+/* La barra: una riga, il marchio, poche voci, il verbo del mestiere. */
+.barra { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--fondo) 90%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: env(safe-area-inset-top); }
+.barra > .contenitore { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; }
+.barra nav { display: flex; gap: 0.25rem; }
+.barra nav a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.75rem; border-radius: 8px; text-decoration: none; white-space: nowrap; font-size: var(--t-nota); }
+.marchio { display: inline-flex; align-items: center; min-height: 44px; font: var(--peso-titoli) 1.375rem/1 var(--titoli); text-decoration: none; }
+@media (max-width: 40rem) { .barra nav { display: none; } }   /* sul telefono resta il marchio e il tasto: un menu solo se le pagine sono davvero tante */
+
+/* Il tasto: verbo e cosa. Otto stati: qui normale, sopra, premuto, fuoco, spento, occupato. Errore e riuscito li dice il modulo. */
+.tasto {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 48px; padding: 0 1.5rem;
+  border: 0; border-radius: 999px; background: var(--azione); color: var(--su-azione);
+  font: 600 1rem/1 var(--testo); text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: transform var(--veloce) var(--curva), background-color var(--medio) var(--curva);
+}
+.tasto:active { transform: scale(0.97); }
+.tasto--quieto { background: transparent; color: var(--inchiostro); box-shadow: inset 0 0 0 1.5px var(--filo); }
+.tasto[disabled], .tasto[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
+.tasto[aria-busy="true"] { cursor: progress; opacity: 0.8; }
+@media (hover: hover) {
+  .tasto:hover { background: color-mix(in srgb, var(--azione) 88%, black); }
+  .tasto--quieto:hover { background: color-mix(in srgb, var(--inchiostro) 6%, transparent); }
+  .barra nav a:hover { background: color-mix(in srgb, var(--inchiostro) 6%, transparent); }
+}
+@media (max-width: 40rem) { .tasto--largo { display: flex; width: 100%; } }
+
+/* I moduli: etichetta che si vede, 16 px almeno (se no l'iPhone ingrandisce la pagina), errore accanto al campo. */
+label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
+input:not([type="checkbox"]):not([type="radio"]), textarea, select {
+  width: 100%; min-height: 48px; padding: 0.6rem 0.9rem; border: 1.5px solid var(--filo); border-radius: 10px;
+  background: var(--fondo-alto); color: var(--inchiostro); font: inherit; font-size: max(1rem, 16px);
+}
+[aria-invalid="true"] { border-color: #b3261e; }
+.errore { margin-top: 0.4rem; color: #8c1d18; font-size: var(--t-nota); }
+
+/* Il piè di pagina: vero. Il nome, i link veri, la riga legale con l'anno di adesso. */
+.pie { padding-block: 3rem calc(3rem + env(safe-area-inset-bottom)); border-top: 1px solid var(--filo); color: var(--inchiostro-2); font-size: var(--t-nota); }
+.pie a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* Una sola entrata, quella della prima vista. Parte da sola, senza script: chi ha «Riduci movimento» vede la pagina finita. */
+@media (prefers-reduced-motion: no-preference) {
+  .entra { animation: entra var(--lento) var(--curva) both; }
+  .entra:nth-child(2) { animation-delay: 40ms; }
+  .entra:nth-child(3) { animation-delay: 80ms; }
+  @keyframes entra { from { opacity: 0; transform: translateY(8px); } }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }

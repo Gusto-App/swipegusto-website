@@ -1,0 +1,76 @@
+/* GUSTO · LE PAGINE LEGALI (Termini, Privacy). UFF-553, 12/11/2026.
+   Sobrie: si leggono e basta. Stessi caratteri e colori della home (gusto.css, base.css), niente movimento, niente script,
+   niente da server di altri. Si caricano dopo gusto.css e base.css. */
+
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 380 640; font-display: swap; src: url("caratteri/fraunces-normal-latin.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("caratteri/inter-normal-latin.woff2") format("woff2"); }
+
+:root {
+  --fondo: var(--surfaceBase);
+  --fondo-alto: var(--surfaceRaised);
+  --fondo-tinto: var(--surfaceAlt);
+  --inchiostro: var(--textPrimary);
+  --inchiostro-2: var(--textSecondary);
+  --azione: var(--sage700);
+  --su-azione: var(--textInverse);
+  --titoli: "Fraunces", Georgia, serif;
+  --testo: "Inter", system-ui, -apple-system, sans-serif;
+  --peso-titoli: 520;
+  --t-manifesto: clamp(2.5rem, 1.6rem + 3.4vw, 4rem);
+  --t-sezione: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --t-voce: 1.1875rem;
+}
+
+.legale { padding-block: clamp(2.5rem, 6vw, 5rem) var(--respiro-1); }
+.legale .contenitore { max-width: 46rem; }
+.legale h1 { margin-bottom: 0.75rem; }
+.legale .versione { color: var(--inchiostro-2); font-size: var(--t-nota); margin-bottom: 2rem; }
+.legale h2 { margin: 3rem 0 1rem; scroll-margin-top: 6rem; }
+.legale h3 { margin: 2rem 0 0.6rem; font-family: var(--testo); font-weight: 600; font-size: var(--t-voce); letter-spacing: 0; }
+.legale p, .legale li { line-height: 1.65; }
+.legale p + p, .legale p + ul, .legale ul + p, .legale p + ol, .legale ol + p, .legale table + p, .legale p + table { margin-top: 0.9rem; }
+.legale ul, .legale ol { padding-left: 1.25rem; margin: 0.6rem 0 0; display: grid; gap: 0.45rem; }
+.legale a { color: var(--azioneTesto); text-underline-offset: 0.15em; }
+.legale strong { font-weight: 600; }
+
+/* L'indice in cima: le voci si toccano bene anche col dito. */
+.indice { margin: 0 0 2.5rem; padding: 1.25rem 1.5rem; border-radius: var(--raggio); background: var(--fondo-tinto); }
+.indice p { font-weight: 600; margin-bottom: 0.4rem; }
+.indice ol { columns: 2 16rem; display: block; margin: 0; }
+.indice li { break-inside: avoid; }
+.indice a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* Le tabelle: si scorrono di lato sul telefono, senza rompere la pagina. */
+.tabella { overflow-x: auto; margin-top: 1rem; border: 1px solid var(--borderSoft); border-radius: 12px; background: var(--fondo-alto); }
+.legale table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.9375rem; }
+.legale th, .legale td { padding: 0.65rem 0.8rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--borderSoft); }
+.legale tr:last-child td { border-bottom: 0; }
+.legale th { font-weight: 600; background: var(--surfaceTint); }
+
+.modulo { margin-top: 1rem; padding: 1rem 1.25rem; border-left: 3px solid var(--sage500); background: var(--fondo-alto); border-radius: 0 12px 12px 0; }
+.modulo p + p { margin-top: 0.35rem; }
+
+/* Un dato o una decisione che manca: rosso pomodoro come nella home, impossibile da non vedere. Non si pubblica finché ce n'è uno
+   (controllo in LEGGIMI-PUBBLICAZIONE.md: grep "segnaposto" deve dare zero righe). */
+.segnaposto { display: inline-block; background: var(--tomato700); color: #fff; padding: 0.05em 0.45em; border-radius: 4px; font-weight: 600; letter-spacing: 0.02em; line-height: 1.45; }
+.segnaposto-blocco { margin-block: 1rem; padding: 0.9rem 1.1rem; border: 2px dashed var(--tomato700); border-radius: 12px; background: var(--tomato50); color: var(--textPrimary); }
+.segnaposto-blocco::before { content: "SEGNAPOSTO · DA TOGLIERE PRIMA DI PUBBLICARE"; display: block; margin-bottom: 0.4rem; font: 600 0.75rem/1.2 var(--testo); letter-spacing: 0.08em; }
+
+.pie .contenitore { display: grid; gap: 0.25rem; max-width: 46rem; }
+/* Il marchio in alto: come nella home (pagina.css), così è lo stesso segno e il dito lo prende bene. */
+.legale-pagina .marchio { font-weight: 600; font-size: 1.5625rem; letter-spacing: -0.02em; }
+
+/* Sul telefono le tabelle diventano schede: ogni riga è un blocco, e ogni cella dice di che colonna è (data-etichetta).
+   Niente da scorrere di lato. */
+@media (max-width: 40rem) {
+  .tabella { border: 0; background: none; overflow: visible; }
+  .legale table { min-width: 0; }
+  .legale thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .legale table, .legale tbody, .legale tr, .legale td { display: block; }
+  .legale tr { margin-bottom: 0.75rem; padding: 0.75rem 0.9rem; border: 1px solid var(--borderSoft); border-radius: 12px; background: var(--fondo-alto); }
+  .legale td { padding: 0.2rem 0; border: 0; }
+  .legale td::before { content: attr(data-etichetta); display: block; font-size: 0.8125rem; font-weight: 600; color: var(--inchiostro-2); }
+  .legale td:first-child { font-weight: 600; }
+  .legale td:first-child::before { content: none; }
+}
+.pie a { color: inherit; }

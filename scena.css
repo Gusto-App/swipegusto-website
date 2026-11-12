@@ -1,0 +1,102 @@
+/* VERSIONE 4 «DAL PIATTO»: un film con il 3D dentro. Lo schermo intero è la ripresa; il testo è piccolo e sta in basso a
+   sinistra sopra un velo (la regola di Aman); il titolo è grande. Il telefono (3D) si appoggia sulla tavola e si alza; il piatto
+   cambia con un liquido. Dopo la scena la pagina torna di giorno e sale sopra, come un sipario.
+   Cosa comanda: la camera, e poi il tocco. Una cosa sola si muove alla volta. */
+
+:root { --t-dalpiatto: clamp(3.25rem, 1.2rem + 7.6vw, 8.5rem); }
+
+/* La barra sopra il film non ha fondo. Dopo il film torna quella di sempre. */
+html.sul-film .barra { background: transparent; border-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+html.sul-film .barra { --inchiostro: var(--scura-inchiostro); --azione: var(--scura-azione); --su-azione: var(--scura-su-azione); color: var(--inchiostro); }
+html.vivo .barra { transition: background-color 400ms linear; }
+/* Sul film una cosa sola comanda: il tasto grande della prima vista. Quello della barra, finché c'è il film, è un filo di luce. */
+html.sul-film .barra .tasto { background: transparent; color: var(--inchiostro); box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.5); }
+@media (hover: hover) { html.sul-film .barra .tasto:hover { background: rgb(255 255 255 / 0.12); } }
+/* Le parole di un passo che non è in scena sono trasparenti ma restano nella pagina (le legge chi non vede); non prendono il dito. */
+.film.in-scena .passo { pointer-events: none; }
+.film.in-scena .passo a, .film.in-scena .passo button { pointer-events: auto; }
+.film.in-scena .passo[data-fuori] a, .film.in-scena .passo[data-fuori] button { pointer-events: none; }
+
+/* ── FERMA (senza script o con «Riduci movimento»): il macro col titolo, poi i passi in fila con le foto e le schermate vere. ── */
+.film h1 { font-size: var(--t-dalpiatto); font-weight: 500; max-width: 7.5ch; color: var(--inchiostro); }
+.film h2 { font-size: var(--t-sezione); font-weight: 500; max-width: 11ch; }
+.film .guida { max-width: 30ch; color: var(--inchiostro-2); }
+.film .passo__testo { display: grid; gap: 1.1rem; justify-items: start; }
+.film .etichetta { color: var(--inchiostro); }
+.film .etichetta b { color: var(--inchiostro); }
+.film__velo, .film__tela3d, .film__lastra, .sequenza, .film__vapore { display: none; }
+.passo__fermo { position: relative; width: 100%; }
+.passo__foto { width: 100%; border-radius: var(--raggio); }
+.passo__schermata { position: absolute; left: 6%; bottom: -6%; width: 22%; }
+.film__fine { display: block; }
+.film__fine img { width: 100%; border-radius: var(--raggio); }
+@media (min-width: 60rem) { .film .passo { grid-template-columns: 5fr 7fr; } }
+
+/* ── ACCESA: la cornice resta ferma; la tela del film, la tela 3D, il velo, le parole. ─────────────────────────────────── */
+.film.in-scena .cornice::before { content: none; }
+.film.in-scena .sequenza { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
+.film.in-scena .sequenza--gru, .film.in-scena .sequenza--giro { opacity: 0; }
+/* Il vapore: sopra le due tele, sotto il 3D e il velo. La regia lo sfuma via appena la camera parte, e lo ferma. */
+.film.in-scena .film__vapore { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.film.in-scena .film__tela3d { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.film.in-scena .film__velo { display: block; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgb(10 9 6 / 0.62) 0%, rgb(10 9 6 / 0.3) 10%, rgb(10 9 6 / 0) 20%),
+    radial-gradient(ellipse 95% 85% at 55% 40%, transparent 50%, rgb(10 9 6 / 0.5) 100%),
+    linear-gradient(to top, rgb(10 9 6 / 0.94) 0%, rgb(10 9 6 / 0.82) 26%, rgb(10 9 6 / 0.5) 46%, transparent 66%); }
+.film.in-scena .film__velo::after { content: ""; position: absolute; inset: 0; opacity: 0.09; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E"); }
+/* Il telefono appoggiato, senza 3D: la schermata vera distesa sul legno in basso a sinistra (è anche il posto da cui parte il 3D). */
+.film.in-scena .film__lastra { display: block; position: absolute; left: 7%; bottom: 9%; width: 13vw; max-width: 12rem; transform-origin: 50% 100%;
+  transform: perspective(70rem) rotateX(58deg) rotateZ(-14deg); z-index: 1; }
+.film.in-scena .passo__fermo, .film.in-scena .film__fine { display: none; }
+.film.in-scena .passo { padding-block: 5rem 4.5rem; z-index: 2; }
+.film.in-scena .passo__testo { align-self: end; }
+.film.in-scena .segno { color: var(--inchiostro-2); z-index: 2; }
+.film.in-scena .segno__filo { background: rgb(255 255 255 / 0.22); }
+
+@media (min-width: 60rem) {
+  .film.in-scena .film__velo { background:
+      linear-gradient(to bottom, rgb(10 9 6 / 0.6) 0%, rgb(10 9 6 / 0.28) 9%, rgb(10 9 6 / 0) 18%),
+      radial-gradient(ellipse 85% 90% at 60% 42%, transparent 46%, rgb(10 9 6 / 0.45) 100%),
+      linear-gradient(to top, rgb(10 9 6 / 0.92) 0%, rgb(10 9 6 / 0.72) 28%, rgb(10 9 6 / 0.38) 50%, transparent 68%); }
+  .film.in-scena .passo { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); align-items: end; padding-block: 6rem 5.5rem; }
+  .film.in-scena .passo__testo, .film.in-scena .passo--apre .passo__testo { grid-column: 1; align-self: end; padding-bottom: 0; }
+  .film .guida { max-width: 34ch; }
+  .film.in-scena .film__lastra { left: 9%; bottom: 7%; width: 9vw; max-width: 10rem; }
+}
+@media (max-width: 59.99rem) {
+  .film h1 { max-width: 8ch; }
+  .film.in-scena .passo { padding-block: 5rem 4.25rem; }
+  .passo__schermata { width: 30%; left: 4%; bottom: -8%; }
+}
+
+/* ── LA SPESA: il sipario, di giorno. Testo a sinistra, la Lista grande a destra. ─────────────────────────────────────── */
+.spesa { position: relative; overflow: clip; }
+.spesa .griglia { align-items: center; row-gap: 2.5rem; }
+.spesa__testo { grid-column: 1 / span 5; display: grid; gap: 1.25rem; }
+.spesa__testo h2 { max-width: 9ch; }
+.spesa__nota { max-width: 30ch; color: var(--inchiostro-2); padding-top: 1.25rem; border-top: 1px solid color-mix(in srgb, var(--inchiostro) 18%, transparent); }
+.spesa figure { margin: 0; display: grid; gap: 0.9rem; }
+.spesa figcaption { max-width: 26ch; }
+.spesa__lista { grid-column: 8 / span 4; }
+@media (max-width: 60rem) {
+  .spesa__testo { grid-column: 1 / -1; grid-row: 1; }
+  .spesa__lista { grid-row: 2; width: 68%; justify-self: center; }
+}
+
+/* ── I PIATTI: la fila, di giorno. Le foto vere del catalogo, col loro travertino. ──────────────────────────────────── */
+.piatti { padding-block: var(--respiro-2) var(--respiro-1); }
+.piatti__testa { display: grid; gap: 1rem; margin-bottom: clamp(1.5rem, 4vh, 3rem); }
+.piatti__testa h2 { max-width: 12ch; }
+.carta { display: grid; gap: 1rem; align-content: start; }
+.fila > .carta { width: min(70vw, 22rem); }
+.carta img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--raggio); box-shadow: 0 0 0 1px color-mix(in srgb, var(--inchiostro) 8%, transparent); }
+.carta p { font: 500 var(--t-testo)/1.35 var(--testo); max-width: 22ch; }
+.di-lato.in-fila .cornice { align-content: center; }
+
+/* ── LA CHIUSURA: la ciotola torna, dal bordo. ─────────────────────────────────────────────────────────────────────── */
+.chiude__piatto { position: absolute; right: -12%; top: 6%; width: min(50vw, 46rem); pointer-events: none; }
+/* Sul telefono il piatto non sta dietro le parole (la nota lunga di Livia ci finiva sopra: 2 a 1 misurato il 12/11): entra dal bordo
+   destro sopra il titolo, nel flusso della pagina, e il testo gli sta sotto. */
+@media (max-width: 60rem) { .chiude { display: grid; } .chiude__piatto { position: static; order: -1; justify-self: end; width: 74vw; max-width: 22rem; margin: 0 -22% 0.5rem 0; } }

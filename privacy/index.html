@@ -2,406 +2,253 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Informativa sulla Privacy · Gusto</title>
-<meta name="description" content="Gusto — la dieta settimanale personalizzata sui tuoi gusti.">
-<style>
-:root{--bg:#F1EFEB;--surface:#FFFFFF;--ink:#1F1E1C;--muted:#5A5955;--accent:#5A7355;--accent-dark:#455A42;--line:#E3E0DA}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;font-size:17px}
-a{color:var(--accent-dark);text-decoration:none}
-a:hover{text-decoration:underline}
-header.site{background:var(--accent);color:#fff}
-header.site .wrap{max-width:820px;margin:0 auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-header.site .brand{font-weight:800;font-size:22px;letter-spacing:.5px;color:#fff}
-header.site nav a{color:#fff;opacity:.92;margin-left:18px;font-size:15px;font-weight:600}
-main{max-width:820px;margin:0 auto;padding:34px 22px 60px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 30px}
-h1{font-size:30px;line-height:1.25;margin:.2em 0 .4em}
-h2{font-size:22px;margin:1.6em 0 .5em;padding-top:.3em}
-h3{font-size:18px;margin:1.3em 0 .4em}
-table{border-collapse:collapse;width:100%;margin:1em 0;font-size:15px;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-th{background:#F3F1EC}
-code{background:#F3F1EC;padding:1px 5px;border-radius:5px;font-size:.9em}
-hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-blockquote{border-left:3px solid var(--accent);margin:1em 0;padding:.2em 1em;color:var(--muted);background:#F7F5F1;border-radius:0 8px 8px 0}
-footer.site{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-footer.site .wrap{max-width:820px;margin:0 auto;padding:26px 22px;display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
-footer.site a{color:var(--muted);margin-right:16px}
-.hero{text-align:center;padding:56px 22px 30px}
-.hero h1{font-size:40px;margin:.1em 0 .2em}
-.hero p{font-size:19px;color:var(--muted);max-width:560px;margin:0 auto 26px}
-.pill{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;margin:6px}
-.pill.ghost{background:transparent;color:var(--accent-dark);border:1.5px solid var(--accent)}
-.updated{color:var(--muted);font-size:14px}
-@media (max-width:560px){body{font-size:16px}.hero h1{font-size:32px}h1{font-size:26px}.card{padding:22px 18px}}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--
+  GUSTO · INFORMATIVA PRIVACY. Preparata in UFF-553 il 12/11/2026, pubblicata il 12/11/2026 (UFF-559).
+  Base: la revisione del 15/10 (GUSTO-LANCIO-30-GIORNI/12_TERMINI_E_PRIVACY_REVISIONE_LEGALE.md, Parte A, pagina 2),
+  con le correzioni del parere di Livia del 05/11 (Legale/Gusto/parere-termini-e-privacy.md: B1, B5, B6, B7, B8, B9, B10, B11, B14,
+  D8, D11) e la sezione sul sito del suo controllo del 12/11 (controllo-sito-gusto-dal-piatto-2026-11-12.md, «Prima di pubblicare», punto 3).
+  Fatti dell'app ricontrollati nel codice il 12/11 (repo Gusto-App, main ad2b39fe): regione dal telefono (HomeRegionService.swift),
+  Apple Salute legge solo il peso (HealthKitManager.swift:76), «Richiedi una copia dei tuoi dati» e «Revoca il consenso»
+  (PrivacyDataView.swift:53, 108), consenso su «Inizia» (OBBenvenuto.swift:299-303), nessuna foto del corpo nell'app.
+  Pubblicata senza segnaposti: le frasi che descrivono cose non ancora pronte sono tolte e tornano quando sono vere.
+-->
+<title>Informativa privacy · Gusto</title>
+<meta name="description" content="Quali dati tratta Gusto, perché, con chi li condivide, per quanto tempo e quali diritti hai.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Informativa privacy · Gusto">
+<meta property="og:image" content="https://swipegusto.com/img/condivisione.jpg">
+<link rel="canonical" href="https://swipegusto.com/privacy/">
+<meta name="theme-color" content="#F1EFEB">
+<link rel="icon" href="../img/icona-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="../img/icona-180.png">
+<link rel="preload" href="../caratteri/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../gusto.css">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../legale.css">
 </head>
-<body>
-<header class="site"><div class="wrap"><a class="brand" href="/">GUSTO</a><nav><a href="/privacy/">Privacy</a><a href="/termini/">Termini</a><a href="/support/">Supporto</a></nav></div></header>
-<main><div class="card"><h1>Informativa sulla Privacy · Gusto</h1>
-<p><strong>Ultimo aggiornamento:</strong> 13 maggio 2026
-<strong>Titolare del trattamento:</strong> Gusto (Ben — contatto: <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>)
-<strong>Versione documento:</strong> 1.0 (V1 launch draft)
-<strong>Versione in lingua inglese:</strong> <a href="/en/privacy/">English version</a></p>
-<hr />
-<h2>1. Chi siamo e perché esiste questa informativa</h2>
-<p>Gusto è un'app iOS che ti aiuta a costruire una dieta settimanale personalizzata sulla base di gusti, obiettivi e contesto. Per offrire questo servizio trattiamo alcuni dati personali. Questa informativa, redatta secondo il Regolamento UE 2016/679 ("GDPR") e il D.Lgs. 196/2003 ("Codice Privacy") aggiornato, spiega quali dati raccogliamo, perché, per quanto tempo li conserviamo e quali diritti puoi esercitare.</p>
-<p>Questa informativa si applica all'app Gusto per iOS e al sito <code>swipegusto.com</code>.</p>
-<h2>2. Categorie di dati che trattiamo</h2>
-<h3>2.1 Dati che ci fornisci tu</h3>
-<table>
-<thead>
-<tr>
-<th>Dato</th>
-<th>Quando viene raccolto</th>
-<th>Finalità</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Indirizzo email</td>
-<td>Registrazione account (Sign in with Apple)</td>
-<td>Autenticazione, comunicazioni di servizio</td>
-</tr>
-<tr>
-<td>Nome visualizzato</td>
-<td>Onboarding</td>
-<td>Personalizzazione interfaccia</td>
-</tr>
-<tr>
-<td>Dati antropometrici (peso, altezza, età, sesso, livello di attività, % massa grassa stimata, massa magra, BMR, TDEE)</td>
-<td>Onboarding e aggiornamenti periodici</td>
-<td>Calcolo fabbisogno calorico, generazione piano dietetico</td>
-</tr>
-<tr>
-<td>Obiettivo (perdere/mantenere/aumentare peso)</td>
-<td>Onboarding</td>
-<td>Adattamento target calorico</td>
-</tr>
-<tr>
-<td>Preferenze alimentari (stile di alimentazione, allergie, intolleranze, ingredienti non graditi, tempo max di cottura, porzioni, snack abilitati)</td>
-<td>Onboarding e modifiche da Preferenze</td>
-<td>Filtraggio piatti, ranking personalizzato</td>
-</tr>
-<tr>
-<td>Condizioni di salute dichiarate (es. diabete, ipertensione, ipercolesterolemia)</td>
-<td>Opzionale, da Preferenze</td>
-<td>Filtri di sicurezza alimentare</td>
-</tr>
-<tr>
-<td>Foto del corpo per stima composizione corporea</td>
-<td>Onboarding e ri-stima ogni 56 giorni (opzionale)</td>
-<td>Stima della % di massa grassa e magra</td>
-</tr>
-<tr>
-<td>Sgarri descritti a voce o testo</td>
-<td>Quando registri uno sgarro</td>
-<td>Stima calorie/macro dello sgarro e adattamento del piano</td>
-</tr>
-<tr>
-<td>Foto del frigo</td>
-<td>Quando usi "analizza frigo"</td>
-<td>Suggerimenti piatti basati su ingredienti disponibili</td>
-</tr>
-<tr>
-<td>Feedback sui piatti (like/dislike, abbinamenti, sostituzioni, salti)</td>
-<td>Durante l'uso dell'app</td>
-<td>Apprendimento delle tue preferenze</td>
-</tr>
-<tr>
-<td>Lista della spesa, piatti pinnati, dispensa</td>
-<td>Durante l'uso dell'app</td>
-<td>Funzionalità core</td>
-</tr>
-</tbody>
-</table>
-<h3>2.2 Dati raccolti automaticamente</h3>
-<table>
-<thead>
-<tr>
-<th>Dato</th>
-<th>Origine</th>
-<th>Finalità</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Eventi di consumo pasto (mangiato/sostituito/saltato/sgarro)</td>
-<td>Tab "Oggi"</td>
-<td>Tracciamento aderenza, ricomputazione piano</td>
-</tr>
-<tr>
-<td>Idratazione giornaliera (ml di acqua)</td>
-<td>Card idratazione</td>
-<td>Tracciamento idratazione</td>
-</tr>
-<tr>
-<td>Peso (lettura periodica)</td>
-<td>Apple Salute (HealthKit, previo tuo consenso)</td>
-<td>Adattamento TDEE settimanale</td>
-</tr>
-<tr>
-<td>Calorie consumate / acqua scritte su HealthKit</td>
-<td>Audit log scritture HealthKit</td>
-<td>Tracciabilità per diagnostica e GDPR</td>
-</tr>
-<tr>
-<td>Sottoscrizioni e prove gratuite</td>
-<td>StoreKit / App Store</td>
-<td>Erogazione PRO</td>
-</tr>
-<tr>
-<td>Regione geografica approssimativa (es. "Lombardia")</td>
-<td>Dedotta una tantum dall'indirizzo IP al primo avvio, tramite un servizio di geolocalizzazione IP</td>
-<td>Suggerire con leggera priorità piatti della tradizione locale</td>
-</tr>
-<tr>
-<td>Impression e click su contenuti sponsorizzati</td>
-<td>Card sponsorizzate</td>
-<td>Reportistica advertiser</td>
-</tr>
-</tbody>
-</table>
-<h3>2.3 Categorie particolari (art. 9 GDPR)</h3>
-<p>I dati relativi a peso, composizione corporea, abitudini alimentari e condizioni di salute dichiarate possono qualificarsi come <strong>dati relativi alla salute</strong>, quindi categorie particolari ai sensi dell'art. 9 GDPR. Trattiamo questi dati solo sulla base del tuo <strong>consenso esplicito</strong> (art. 9.2(a) GDPR), che ti chiediamo in onboarding per ciascuna categoria sensibile. Puoi revocarlo in ogni momento da "Profilo → Impostazioni → Privacy" o cancellando l'account.</p>
-<p><strong>Posizione approssimativa (geo-IP).</strong> Al primo avvio l'app deduce la tua <strong>regione</strong> (es. "Lombardia") dall'indirizzo IP, interrogando un servizio esterno di geolocalizzazione IP. Salviamo <strong>solo il nome della regione</strong> nel tuo profilo: l'indirizzo IP non viene memorizzato da Gusto, non raccogliamo coordinate GPS e non chiediamo i permessi di localizzazione del dispositivo. La regione serve unicamente a dare una leggera priorità ai piatti della tradizione locale nei suggerimenti; puoi chiederne la rimozione in ogni momento scrivendoci (sezione Contatti). Base giuridica: legittimo interesse (art. 6.1(f) GDPR) a personalizzare i suggerimenti con un dato a bassissima granularità.</p>
-<h2>3. Foto del corpo · come funziona davvero</h2>
-<p>Le foto del corpo che fai durante l'onboarding o per la ri-stima ricevono un trattamento speciale, by design, per garantirti la massima privacy:</p>
-<ol>
-<li><strong>La foto resta sul tuo dispositivo.</strong> Viene salvata nella sandbox di Gusto (<code>Documents/body-photos/</code>) e non viene mai caricata su nessun nostro server di storage.</li>
-<li><strong>Trasmissione effimera per la sola analisi.</strong> La foto viene inviata in formato base64, una sola volta, a una funzione serverless (Supabase Edge Function <code>analyze-body</code>) ospitata in UE (eu-west-1). La funzione la passa al modello di visione (Anthropic Claude Sonnet) per stimare composizione corporea.</li>
-<li><strong>Nessuna persistenza lato server.</strong> La nostra funzione non scrive la foto su Storage, non la logga, non la archivia. Anthropic non utilizza l'input per addestrare i propri modelli (vedi DPA con Anthropic, art. 6.1).</li>
-<li><strong>Salviamo solo i numeri.</strong> Sulla tabella <code>body_estimation_events</code> finiscono esclusivamente i risultati numerici (% di massa grassa, massa magra, peso al momento della stima, eventuali note testuali del modello). Mai la foto, mai un hash della foto, mai un percorso allo storage.</li>
-<li><strong>Tu controlli quando cancellarla.</strong> Puoi rimuovere le foto dalla sandbox di Gusto da "Profilo → Storage → Rimuovi foto locali", oppure disinstallando l'app.</li>
-</ol>
-<p>Se in futuro decidessimo di introdurre archiviazione cloud delle foto (oggi esclusa), te lo notificheremmo con un consenso esplicito separato prima di abilitarla sul tuo account.</p>
-<h2>4. Finalità e basi giuridiche</h2>
-<table>
-<thead>
-<tr>
-<th>Finalità</th>
-<th>Base giuridica</th>
-<th>Categoria di dati</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Autenticazione e gestione account</td>
-<td>Esecuzione del contratto (art. 6.1(b) GDPR)</td>
-<td>Email, identificativi</td>
-</tr>
-<tr>
-<td>Generazione piano dietetico personalizzato</td>
-<td>Consenso esplicito (art. 9.2(a)) per dati salute + Contratto (art. 6.1(b))</td>
-<td>Antropometrici, condizioni salute, preferenze</td>
-</tr>
-<tr>
-<td>Analisi visione foto corpo</td>
-<td>Consenso esplicito (art. 9.2(a))</td>
-<td>Foto (solo in transito) e risultati numerici</td>
-</tr>
-<tr>
-<td>Apprendimento gusti cross-utente (matrix factorization, clustering archetipi)</td>
-<td>Legittimo interesse (art. 6.1(f)) bilanciato con anonimizzazione su cancellazione</td>
-<td>Feedback, impression, eventi di consumo (anonimizzati post-delete)</td>
-</tr>
-<tr>
-<td>Erogazione abbonamento PRO</td>
-<td>Esecuzione del contratto</td>
-<td>Eventi sottoscrizione</td>
-</tr>
-<tr>
-<td>Advertising contestuale (utenti free)</td>
-<td>Consenso (cookie/IDFA) + Legittimo interesse per impression aggregate</td>
-<td>Impression, click</td>
-</tr>
-<tr>
-<td>Sicurezza, anti-frode, diagnostica</td>
-<td>Legittimo interesse</td>
-<td>Log tecnici</td>
-</tr>
-<tr>
-<td>Adempimenti di legge</td>
-<td>Obbligo legale (art. 6.1(c))</td>
-<td>Fatturazione (gestita da Apple per IAP)</td>
-</tr>
-</tbody>
-</table>
-<p>Hai il diritto di opporti al trattamento basato su legittimo interesse: scrivici a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>.</p>
-<h2>5. Tempi di conservazione</h2>
-<table>
-<thead>
-<tr>
-<th>Categoria</th>
-<th>Conservazione</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Account attivo (profilo, piani, dispensa)</td>
-<td>Per tutta la durata dell'account</td>
-</tr>
-<tr>
-<td>Eventi comportamentali (feedback, impression, consumo, sgarri)</td>
-<td>24 mesi se l'account è attivo; in caso di cancellazione, vengono <strong>anonimizzati</strong> (campo <code>user_id → NULL</code>) e mantenuti per l'addestramento dei modelli, senza più alcun collegamento alla tua identità</td>
-</tr>
-<tr>
-<td>Eventi di stima corporea</td>
-<td>36 mesi dalla data di rilevazione</td>
-</tr>
-<tr>
-<td>Log di scrittura HealthKit</td>
-<td>12 mesi (audit di sicurezza)</td>
-</tr>
-<tr>
-<td>Eventi di sottoscrizione</td>
-<td>10 anni (obblighi contabili e fiscali)</td>
-</tr>
-<tr>
-<td>Foto del corpo (sul dispositivo)</td>
-<td>Finché non le cancelli tu, oppure finché non disinstalli l'app</td>
-</tr>
-<tr>
-<td>Log diagnostici tecnici</td>
-<td>30 giorni rotanti</td>
-</tr>
-</tbody>
-</table>
-<p>L'anonimizzazione segue il trigger <code>anonymize_on_delete</code> (vedi tabelle <code>meal_consumed_events</code>, <code>sgarro_events</code>, <code>feedback_events</code>, <code>impressions</code>, <code>duel_responses</code>). Il <code>user_id</code> viene messo a NULL, il record perde qualsiasi possibilità di re-identificazione.</p>
-<h2>6. A chi comunichiamo i dati</h2>
-<p>Per erogare il servizio, ci avvaliamo dei seguenti fornitori (responsabili del trattamento ex art. 28 GDPR):</p>
-<table>
-<thead>
-<tr>
-<th>Fornitore</th>
-<th>Servizio</th>
-<th>Localizzazione</th>
-<th>Trasferimento extra-UE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Supabase, Inc.</td>
-<td>Database PostgreSQL, autenticazione, Edge Functions, Storage</td>
-<td>UE (eu-west-1)</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Anthropic, PBC</td>
-<td>Inferenza AI (visione, generazione piano, analisi sgarro)</td>
-<td>USA</td>
-<td>Sì, garantito da Clausole Contrattuali Standard (SCC) UE 2021/914 e Anthropic DPA</td>
-</tr>
-<tr>
-<td>Apple Inc.</td>
-<td>Autenticazione (Sign in with Apple), HealthKit, IAP/StoreKit, push notification (APNs)</td>
-<td>Globale</td>
-<td>Sì, garantito da SCC e DPA Apple</td>
-</tr>
-<tr>
-<td>GitHub, Inc. (Microsoft)</td>
-<td>Hosting pagine legali, CI/CD</td>
-<td>USA</td>
-<td>Sì, garantito da SCC</td>
-</tr>
-<tr>
-<td>Google Ireland Ltd. (AdMob)</td>
-<td>Pubblicità contestuale (solo utenti free)</td>
-<td>UE/USA</td>
-<td>Sì, garantito da SCC</td>
-</tr>
-</tbody>
-</table>
-<p>Non vendiamo i tuoi dati a terzi. Non condividiamo i tuoi dati personali identificativi con inserzionisti. AdMob riceve solo identificativi pseudonimi (IDFA, se concesso) e contesto generico.</p>
-<h2>7. Trasferimenti extra-UE</h2>
-<p>Quando i dati vengono trasferiti fuori dall'UE (es. inferenza AI verso Anthropic USA), il trasferimento è coperto da <strong>Clausole Contrattuali Standard</strong> approvate dalla Commissione Europea (Decisione 2021/914) e, ove applicabili, da misure supplementari (es. cifratura in transito, contratti DPA, minimizzazione dati).</p>
-<h2>8. I tuoi diritti</h2>
-<p>In base agli articoli 15–22 GDPR puoi esercitare in ogni momento:</p>
-<table>
-<thead>
-<tr>
-<th>Diritto</th>
-<th>Cosa significa</th>
-<th>Come esercitarlo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Accesso (art. 15)</td>
-<td>Sapere quali dati abbiamo e ottenerne copia</td>
-<td>Profilo → Esporta i miei dati (JSON) o email a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a></td>
-</tr>
-<tr>
-<td>Rettifica (art. 16)</td>
-<td>Correggere dati inesatti</td>
-<td>Direttamente in app da "Preferenze"</td>
-</tr>
-<tr>
-<td>Cancellazione (art. 17)</td>
-<td>"Diritto all'oblio"</td>
-<td>Profilo → Cancella account (hard delete su dati L1, anonimizzazione su dati L2)</td>
-</tr>
-<tr>
-<td>Limitazione (art. 18)</td>
-<td>Sospendere il trattamento</td>
-<td>Email a privacy@swipegusto.com</td>
-</tr>
-<tr>
-<td>Portabilità (art. 20)</td>
-<td>Ricevere i dati in formato strutturato e riusabile</td>
-<td>Profilo → Esporta i miei dati (JSON)</td>
-</tr>
-<tr>
-<td>Opposizione (art. 21)</td>
-<td>Opporsi al trattamento basato su legittimo interesse</td>
-<td>Email a privacy@swipegusto.com</td>
-</tr>
-<tr>
-<td>Revoca del consenso</td>
-<td>Per trattamenti basati su consenso</td>
-<td>Profilo → Privacy oppure cancellazione account</td>
-</tr>
-<tr>
-<td>Reclamo all'Autorità Garante</td>
-<td>Garante per la protezione dei dati personali</td>
-<td><a href="https://www.garanteprivacy.it">garanteprivacy.it</a></td>
-</tr>
-</tbody>
-</table>
-<p>Rispondiamo entro 30 giorni (estendibili fino a 90 in casi complessi, con informativa).</p>
-<h2>9. Sicurezza</h2>
-<p>Adottiamo misure tecniche e organizzative adeguate (art. 32 GDPR):</p>
-<ul>
-<li><strong>Cifratura in transito</strong>: TLS 1.3 su tutte le comunicazioni con i nostri server.</li>
-<li><strong>Cifratura at-rest</strong>: AES-256 lato database (Supabase) e cifratura disco lato dispositivo (iOS Data Protection).</li>
-<li><strong>Row Level Security</strong> PostgreSQL: ogni utente può leggere solo i propri dati (policy <code>auth.uid() = user_id</code>).</li>
-<li><strong>Service role bypass</strong> solo per worker autenticati interni che operano su dati aggregati o anonimizzati.</li>
-<li><strong>Sign in with Apple</strong>: nessuna gestione di password lato Gusto.</li>
-<li><strong>Minimizzazione</strong>: raccogliamo solo i dati strettamente necessari (es. niente foto sul server, niente geolocalizzazione precisa, niente rubrica).</li>
-<li><strong>Audit log</strong> per scritture sensibili (HealthKit, modifica profilo, sottoscrizioni).</li>
-<li><strong>Backup</strong> Supabase gestiti con ritenzione 7 giorni (Pro plan).</li>
-</ul>
-<p>In caso di <strong>data breach</strong> che presenti un rischio per i tuoi diritti, ti notificheremo senza ingiustificato ritardo (art. 34 GDPR) e informeremo il Garante entro 72 ore (art. 33 GDPR).</p>
-<h2>10. Minori</h2>
-<p>Gusto non è destinato a minori di 16 anni. Non raccogliamo consapevolmente dati di minori. Se vieni a conoscenza che un minore di 16 anni ha registrato un account, scrivici a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a> e lo cancelleremo.</p>
-<h2>11. Cookie e tecnologie simili (app)</h2>
-<p>L'app non utilizza cookie. Su utenti free, AdMob può utilizzare l'identificativo pubblicitario di Apple (IDFA) <strong>solo se concedi il consenso tramite il prompt ATT</strong> (App Tracking Transparency). Se non lo concedi, vedrai pubblicità non personalizzata.</p>
-<h2>12. Modifiche all'informativa</h2>
-<p>Quando aggiorniamo questa informativa, cambiamo la data di "Ultimo aggiornamento" in alto. Per modifiche sostanziali, ti notificheremo in app prima dell'entrata in vigore. Le versioni precedenti restano archiviate in <a href="https://github.com/Gusto-App/Gusto-App">GitHub gusto-website history</a>.</p>
-<h2>13. Contatti</h2>
-<ul>
-<li><strong>Titolare del trattamento</strong>: Gusto · Ben</li>
-<li><strong>Email privacy</strong>: <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a></li>
-<li><strong>Email supporto</strong>: <a href="mailto:support@swipegusto.com">support@swipegusto.com</a></li>
-<li><strong>Domicilio</strong>: indicare al primo avvio operativo / DPO non obbligatorio (no monitoraggio sistematico large-scale)</li>
-<li><strong>Autorità di controllo</strong>: Garante per la protezione dei dati personali — <a href="https://www.garanteprivacy.it">garanteprivacy.it</a></li>
-</ul></div></main>
-<footer class="site"><div class="wrap">
-<div>© 2026 Gusto · swipegusto.com</div>
-<div><a href="/privacy/">Privacy</a><a href="/termini/">Termini</a><a href="/support/">Supporto</a></div>
-</div></footer>
+<body class="legale-pagina">
+<a class="salta" href="#contenuto">Salta al contenuto</a>
+<header class="barra">
+  <div class="contenitore">
+    <a class="marchio" href="../" aria-label="Gusto, pagina iniziale">Gusto</a>
+    <nav aria-label="Pagine legali">
+      <a href="../privacy/" aria-current="page">Privacy</a>
+      <a href="../termini/">Termini</a>
+      <a href="https://swipegusto.com/support/">Assistenza</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenuto" class="legale">
+  <div class="contenitore">
+    <h1>Informativa privacy</h1>
+    <p class="versione">Versione del 12 novembre 2026</p>
+    <p>Questa informativa spiega quali dati personali tratta Gusto, perché, con chi li condivide e quali diritti hai (articoli 13 e 14 del Regolamento UE 2016/679, «GDPR»). Vale per l’app Gusto per iPhone e per il sito swipegusto.com.</p>
+
+    <nav class="indice" aria-label="In questa pagina">
+      <p>In questa pagina</p>
+      <ol>
+        <li><a href="#titolare">Chi tratta i tuoi dati</a></li>
+        <li><a href="#in-breve">In breve</a></li>
+        <li><a href="#quali-dati">Quali dati trattiamo</a></li>
+        <li><a href="#salute">I dati sulla salute</a></li>
+        <li><a href="#foto-ia">Foto e intelligenza artificiale</a></li>
+        <li><a href="#perche">Perché e su quale base</a></li>
+        <li><a href="#con-chi">Con chi condividiamo i dati</a></li>
+        <li><a href="#fuori-ue">Dati fuori dall’Unione europea</a></li>
+        <li><a href="#quanto">Per quanto tempo</a></li>
+        <li><a href="#diritti">I tuoi diritti</a></li>
+        <li><a href="#sicurezza">Sicurezza</a></li>
+        <li><a href="#minori">Minori</a></li>
+        <li><a href="#sito">Il sito swipegusto.com</a></li>
+        <li><a href="#modifiche">Modifiche</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="titolare">1. Chi tratta i tuoi dati</h2>
+    <p>Titolare del trattamento: Benito Calia.<br>
+    Per tutto quello che riguarda la privacy scrivi a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>.</p>
+    <p>Non abbiamo nominato un responsabile della protezione dei dati (DPO). Per ogni domanda scrivi all’indirizzo qui sopra.</p>
+
+    <h2 id="in-breve">2. In breve</h2>
+    <ul>
+      <li>Usiamo i tuoi dati per far funzionare Gusto: la tua dieta, il diario, la spesa, il frigo.</li>
+      <li>Peso, misure, allergie e condizioni di salute sono dati sulla salute: li usiamo solo con il tuo consenso esplicito.</li>
+      <li>Per scrivere la dieta, una parte di questi dati arriva al nostro fornitore di intelligenza artificiale, senza il tuo nome né la tua email.</li>
+      <li>Gusto non mostra pubblicità, non vende i tuoi dati e non ti traccia su altre app o siti.</li>
+      <li>Le foto del frigo e dello sgarro le analizza l’intelligenza artificiale del nostro fornitore: non le salviamo sui nostri server.</li>
+      <li>Puoi avere una copia dei tuoi dati, correggerli, revocare il consenso ed eliminare l’account quando vuoi.</li>
+    </ul>
+
+    <h2 id="quali-dati">3. Quali dati trattiamo</h2>
+    <h3>3.1 Dati che ci dai tu</h3>
+    <div class="tabella">
+      <table>
+        <thead><tr><th scope="col">Dati</th><th scope="col">Esempi</th><th scope="col">Obbligatori?</th></tr></thead>
+        <tbody>
+          <tr><td data-etichetta="Dati">Account</td><td data-etichetta="Esempi">email, nome, come accedi (Apple, Google o email)</td><td data-etichetta="Obbligatori?">Sì</td></tr>
+          <tr><td data-etichetta="Dati">Profilo e obiettivo</td><td data-etichetta="Esempi">età, sesso, altezza, peso, livello di attività, obiettivo</td><td data-etichetta="Obbligatori?">Sì, per la dieta</td></tr>
+          <tr><td data-etichetta="Dati">Salute e alimentazione</td><td data-etichetta="Esempi">allergie, intolleranze, condizioni di salute che scegli di indicare (per esempio diabete, pressione alta o colesterolo alto), sonno e stress se li indichi, pasti segnati, sgarri, bicchieri d’acqua, pesate</td><td data-etichetta="Obbligatori?">Sì, per la dieta. Le condizioni di salute solo se le indichi</td></tr>
+          <tr><td data-etichetta="Dati">Gusti e cucina</td><td data-etichetta="Esempi">cibi che ti piacciono o no, tempo per cucinare, porzioni, lista della spesa, frigo, dispensa</td><td data-etichetta="Obbligatori?">Sì, per la dieta</td></tr>
+          <tr><td data-etichetta="Dati">Foto</td><td data-etichetta="Esempi">foto del frigo e dello sgarro</td><td data-etichetta="Obbligatori?">No</td></tr>
+          <tr><td data-etichetta="Dati">«Dove ci hai conosciuto?»</td><td data-etichetta="Esempi">per esempio TikTok, Instagram, un amico. Puoi saltare la domanda</td><td data-etichetta="Obbligatori?">No</td></tr>
+          <tr><td data-etichetta="Dati">Messaggi</td><td data-etichetta="Esempi">quello che ci scrivi per email</td><td data-etichetta="Obbligatori?">No</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Senza i dati obbligatori non possiamo creare la tua dieta.</p>
+
+    <h3>3.2 Dati raccolti in automatico</h3>
+    <div class="tabella">
+      <table>
+        <thead><tr><th scope="col">Dati</th><th scope="col">Come</th><th scope="col">Perché</th></tr></thead>
+        <tbody>
+          <tr><td data-etichetta="Dati">Codice dell’account</td><td data-etichetta="Come">lo crea il nostro database</td><td data-etichetta="Perché">collegare i dati a te</td></tr>
+          <tr><td data-etichetta="Dati">Stato dell’abbonamento</td><td data-etichetta="Come">da Apple: piano, prova, scadenze, codici delle transazioni. Mai i dati della carta</td><td data-etichetta="Perché">sapere se puoi usare Gusto</td></tr>
+          <tr><td data-etichetta="Dati">Uso dell’app</td><td data-etichetta="Come">alcuni passaggi, legati al tuo account: in quali giorni apri l’app, quando apri il Frigo, segni un pasto o un bicchiere, cambi un piatto, e a che punto arrivi nelle prime schermate e nella schermata dell’abbonamento (per esempio se hai visto i piani o iniziato la prova). Non registriamo i testi che scrivi né i nomi dei piatti</td><td data-etichetta="Perché">statistiche interne (punto 6)</td></tr>
+          <tr><td data-etichetta="Dati">Regione</td><td data-etichetta="Come">la leggiamo dalle impostazioni del telefono (Lingua e zona), se indicano una regione. Non usiamo l’indirizzo IP né il GPS. Puoi chiederci di toglierla</td><td data-etichetta="Perché">dare più spazio ai piatti della tua zona</td></tr>
+          <tr><td data-etichetta="Dati">Rapporti sugli arresti dell’app</td><td data-etichetta="Come">li prepara l’iPhone. Non sono collegati al tuo account</td><td data-etichetta="Perché">correggere gli errori</td></tr>
+          <tr><td data-etichetta="Dati">Dati tecnici</td><td data-etichetta="Come">indirizzo IP, data e ora delle richieste, nei registri tecnici dei nostri fornitori di server</td><td data-etichetta="Perché">sicurezza e funzionamento</td></tr>
+          <tr><td data-etichetta="Dati">Consensi</td><td data-etichetta="Come">cosa hai scelto, quando, e su quale versione del testo</td><td data-etichetta="Perché">dimostrare il tuo consenso</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3.3 Apple Salute (solo se lo colleghi)</h3>
+    <p>Se ci dai il permesso, Gusto <strong>legge</strong> il tuo peso da Apple Salute e <strong>scrive</strong> le calorie dei pasti e l’acqua che segni. Il peso che importi diventa una delle tue pesate in Gusto. Teniamo un registro delle scritture, per non scrivere due volte lo stesso dato. Non usiamo i dati di Apple Salute per pubblicità o marketing, non li vendiamo e non li diamo ad altri per questi scopi. Puoi togliere il permesso quando vuoi dalle impostazioni dell’iPhone.</p>
+
+    <h3>3.4 Cosa non raccogliamo</h3>
+    <p>Non vediamo i dati della carta. Non accediamo ai contatti. Non usiamo il GPS. Non usiamo identificativi pubblicitari. I promemoria dell’app nascono sul tuo telefono.</p>
+
+    <h2 id="salute">4. I dati sulla salute</h2>
+    <p>Peso, misure, obiettivo, allergie, condizioni di salute, pasti e acqua possono rivelare informazioni sulla tua salute. Sono «categorie particolari» di dati (articolo 9 del GDPR). Li trattiamo <strong>solo con il tuo consenso esplicito</strong> (articolo 9, paragrafo 2, lettera a).</p>
+    <p><strong>Come dai il consenso.</strong> Il consenso lo dai sulla prima schermata dell’app: toccando «Inizia» accetti i Termini, l’Informativa privacy e l’uso dei dati sulla salute per la tua dieta. Registriamo data e versione del testo.</p>
+    <p><strong>Se non lo dai.</strong> Gusto non può creare la dieta, perché la dieta si basa proprio su questi dati.</p>
+    <p><strong>Come lo revochi.</strong> Quando vuoi, da <strong>Profilo › Privacy e dati › Revoca il consenso</strong>. Dopo la revoca, sull’iPhone dove l’hai revocato l’app non crea diete nuove finché non ci dai di nuovo il consenso. Quello che abbiamo fatto prima resta lecito. Se vuoi che cancelliamo anche i dati, elimina l’account o scrivici a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>.</p>
+
+    <h2 id="foto-ia">5. Foto e intelligenza artificiale</h2>
+    <p>Usiamo l’intelligenza artificiale del nostro fornitore Anthropic per scrivere la tua dieta settimanale, leggere le foto del frigo e dello sgarro e preparare alcuni testi.</p>
+    <p><strong>La dieta.</strong> Per scriverla mandiamo ad Anthropic età, peso, altezza, sesso, attività, obiettivo, gusti, dispensa e, se li hai indicati, sonno e stress e l’eventuale colesterolo alto. Non gli mandiamo nome né email.</p>
+    <p><strong>Le foto.</strong></p>
+    <ol>
+      <li><strong>L’analisi.</strong> Quando chiedi un’analisi, la foto del frigo o dello sgarro passa da una nostra funzione sul server ad Anthropic, che la analizza e ci restituisce il risultato.</li>
+      <li><strong>Non salviamo le foto sui nostri server.</strong> Salviamo solo il risultato: gli ingredienti riconosciuti, le kcal stimate.</li>
+      <li><strong>Cosa fa Anthropic.</strong> Tratta i dati solo per nostro conto, in base a un contratto sulla protezione dei dati. Non li usa per addestrare i suoi modelli. Di norma cancella richieste e risposte entro 30 giorni; più a lungo solo se lo impone la legge o per prevenire abusi.</li>
+    </ol>
+    <p><strong>Altri testi.</strong> Per alcuni testi mandiamo ad Anthropic solo quello che serve e niente che ti identifica: per le schede dei piatti, il piatto e i tuoi tre gusti principali; per la frase sul tuo obiettivo, i numeri del piano, senza peso, altezza o età.</p>
+    <p>Se un giorno volessimo salvare le foto sui nostri server, te lo chiederemmo prima, con un consenso a parte.</p>
+
+    <h2 id="perche">6. Perché usiamo i dati e su quale base giuridica</h2>
+    <div class="tabella">
+      <table>
+        <thead><tr><th scope="col">Perché</th><th scope="col">Quali dati</th><th scope="col">Base giuridica (GDPR)</th></tr></thead>
+        <tbody>
+          <tr><td data-etichetta="Perché">Creare e gestire l’account, far funzionare Gusto</td><td data-etichetta="Quali dati">account, gusti, spesa, frigo, dispensa</td><td data-etichetta="Base giuridica (GDPR)">contratto (art. 6.1.b)</td></tr>
+          <tr><td data-etichetta="Perché">Creare la dieta, il diario e le stime</td><td data-etichetta="Quali dati">dati sulla salute</td><td data-etichetta="Base giuridica (GDPR)">consenso esplicito (art. 9.2.a) e contratto (art. 6.1.b)</td></tr>
+          <tr><td data-etichetta="Perché">Analizzare le foto con l’intelligenza artificiale</td><td data-etichetta="Quali dati">foto e risultati</td><td data-etichetta="Base giuridica (GDPR)">contratto (art. 6.1.b); per la foto dello sgarro anche consenso esplicito (art. 9.2.a)</td></tr>
+          <tr><td data-etichetta="Perché">Collegare Apple Salute</td><td data-etichetta="Quali dati">peso, calorie, acqua</td><td data-etichetta="Base giuridica (GDPR)">consenso esplicito (art. 9.2.a), dato con il permesso dell’iPhone</td></tr>
+          <tr><td data-etichetta="Perché">Gestire l’abbonamento</td><td data-etichetta="Quali dati">stato dell’abbonamento</td><td data-etichetta="Base giuridica (GDPR)">contratto (art. 6.1.b); obblighi fiscali e contabili (art. 6.1.c)</td></tr>
+          <tr><td data-etichetta="Perché">Migliorare i suggerimenti per tutti</td><td data-etichetta="Quali dati">solo preferenze sui piatti, in forma aggregata. Non usiamo per questo pasti, sgarri o dati sulla salute</td><td data-etichetta="Base giuridica (GDPR)">legittimo interesse (art. 6.1.f): rendere Gusto migliore</td></tr>
+          <tr><td data-etichetta="Perché">Statistiche interne</td><td data-etichetta="Quali dati">uso dell’app; risposta a «Dove ci hai conosciuto?», messa accanto allo stato dell’abbonamento</td><td data-etichetta="Base giuridica (GDPR)">legittimo interesse (art. 6.1.f): capire quali funzioni servono e quali canali portano persone che restano</td></tr>
+          <tr><td data-etichetta="Perché">Ricavare la regione</td><td data-etichetta="Quali dati">regione</td><td data-etichetta="Base giuridica (GDPR)">legittimo interesse (art. 6.1.f)</td></tr>
+          <tr><td data-etichetta="Perché">Sicurezza, abusi, correzione degli errori</td><td data-etichetta="Quali dati">dati tecnici, rapporti sugli arresti</td><td data-etichetta="Base giuridica (GDPR)">legittimo interesse (art. 6.1.f)</td></tr>
+          <tr><td data-etichetta="Perché">Registro dei consensi, obblighi di legge, difesa in giudizio</td><td data-etichetta="Quali dati">consensi e dati necessari</td><td data-etichetta="Base giuridica (GDPR)">obbligo di legge (art. 6.1.c); legittimo interesse (art. 6.1.f); per i dati sulla salute art. 9.2.f</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Quando la base è il legittimo interesse, puoi <strong>opporti</strong> scrivendo a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>. Smettiamo, salvo motivi legittimi più forti, per esempio la sicurezza (art. 21).</p>
+    <p><strong>Decisioni automatiche.</strong> Gusto crea la dieta in automatico, ma non prende decisioni che hanno effetti giuridici su di te o che ti toccano in modo simile (art. 22). Puoi sempre cambiare i piatti e i tuoi dati.</p>
+
+    <h2 id="con-chi">7. Con chi condividiamo i dati</h2>
+    <p>Non vendiamo i tuoi dati e non li usiamo per pubblicità. Li condividiamo solo con:</p>
+    <div class="tabella">
+      <table>
+        <thead><tr><th scope="col">Chi</th><th scope="col">Cosa fa</th><th scope="col">Ruolo</th><th scope="col">Dove</th></tr></thead>
+        <tbody>
+          <tr><td data-etichetta="Chi">Supabase (Supabase Pte. Ltd.)</td><td data-etichetta="Cosa fa">database, accesso all’account, funzioni sul server</td><td data-etichetta="Ruolo">responsabile del trattamento (art. 28)</td><td data-etichetta="Dove">database nell’UE (Irlanda); assistenza anche da fuori UE</td></tr>
+          <tr><td data-etichetta="Chi">Anthropic (Anthropic Ireland, Limited)</td><td data-etichetta="Cosa fa">intelligenza artificiale: la dieta, l’analisi delle foto, alcuni testi</td><td data-etichetta="Ruolo">responsabile del trattamento (art. 28)</td><td data-etichetta="Dove">dati trattati negli Stati Uniti</td></tr>
+          <tr><td data-etichetta="Chi">Apple</td><td data-etichetta="Cosa fa">accesso con Apple, acquisti e abbonamenti, Apple Salute</td><td data-etichetta="Ruolo">titolare autonomo per i suoi servizi</td><td data-etichetta="Dove">secondo l’informativa di Apple</td></tr>
+          <tr><td data-etichetta="Chi">Google</td><td data-etichetta="Cosa fa">accesso con Google, solo se lo scegli</td><td data-etichetta="Ruolo">titolare autonomo</td><td data-etichetta="Dove">secondo l’informativa di Google</td></tr>
+          <tr><td data-etichetta="Chi">GitHub (GitHub Pages)</td><td data-etichetta="Cosa fa">ospita il sito swipegusto.com e registra l’indirizzo IP di chi lo visita, per sicurezza (punto 13)</td><td data-etichetta="Ruolo">titolare autonomo dei propri registri</td><td data-etichetta="Dove">Stati Uniti</td></tr>
+          <tr><td data-etichetta="Chi">Altri fornitori e consulenti</td><td data-etichetta="Cosa fa">posta elettronica, commercialista, avvocato, sempre con obbligo di riservatezza</td><td data-etichetta="Ruolo">responsabili o titolari autonomi</td><td data-etichetta="Dove">UE, o con le garanzie del punto 8</td></tr>
+          <tr><td data-etichetta="Chi">Autorità</td><td data-etichetta="Cosa fa">solo se la legge lo impone</td><td data-etichetta="Ruolo">titolari autonomi</td><td data-etichetta="Dove">Italia e UE</td></tr>
+          <tr><td data-etichetta="Chi">Chi acquista Gusto</td><td data-etichetta="Cosa fa">solo se vendiamo l’app o l’attività, con le stesse tutele</td><td data-etichetta="Ruolo">nuovo titolare</td><td data-etichetta="Dove">dipende da chi acquista</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="fuori-ue">8. Dati fuori dall’Unione europea</h2>
+    <p>Alcuni fornitori trattano dati fuori dall’UE (Stati Uniti, Singapore). Fuori dall’UE i dati viaggiano con le Clausole contrattuali tipo della Commissione europea (articolo 46 del GDPR), che fanno parte dei contratti sulla protezione dei dati dei nostri fornitori: ne hai copia scrivendo a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>.</p>
+    <p>Apple, Google e GitHub trattano i dati come titolari autonomi, secondo le loro informative.</p>
+
+    <h2 id="quanto">9. Per quanto tempo teniamo i dati</h2>
+    <div class="tabella">
+      <table>
+        <thead><tr><th scope="col">Dati</th><th scope="col">Per quanto</th></tr></thead>
+        <tbody>
+          <tr><td data-etichetta="Dati">Account, profilo, dati sulla salute, diete, diario, spesa, frigo, dispensa, statistiche d’uso</td><td data-etichetta="Per quanto">Finché hai l’account.</td></tr>
+          <tr><td data-etichetta="Dati">Account non usati</td><td data-etichetta="Per quanto">Se non usi Gusto per 24 mesi e non hai un abbonamento attivo, possiamo cancellare l’account dopo averti avvisato</td></tr>
+          <tr><td data-etichetta="Dati">Piatti che ti abbiamo mostrato</td><td data-etichetta="Per quanto">180 giorni</td></tr>
+          <tr><td data-etichetta="Dati">Registro degli eventi dell’abbonamento</td><td data-etichetta="Per quanto">24 mesi</td></tr>
+          <tr><td data-etichetta="Dati">Avvisi di Apple sugli acquisti, già elaborati</td><td data-etichetta="Per quanto">180 giorni</td></tr>
+          <tr><td data-etichetta="Dati">Dati necessari per obblighi fiscali o per difenderci in giudizio</td><td data-etichetta="Per quanto">Per il tempo previsto dalla legge</td></tr>
+          <tr><td data-etichetta="Dati">Foto</td><td data-etichetta="Per quanto">Sui nostri server: mai salvate. Presso Anthropic: di norma entro 30 giorni, più a lungo solo se lo impone la legge o per prevenire abusi</td></tr>
+          <tr><td data-etichetta="Dati">Registro dei consensi</td><td data-etichetta="Per quanto">Finché hai l’account, e poi per il tempo necessario a dimostrare il consenso</td></tr>
+          <tr><td data-etichetta="Dati">Rapporti sugli arresti e dati tecnici</td><td data-etichetta="Per quanto">Il tempo necessario a correggere gli errori e a proteggere il servizio, poi li cancelliamo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="diritti">10. I tuoi diritti</h2>
+    <div class="tabella">
+      <table>
+        <thead><tr><th scope="col">Puoi</th><th scope="col">Come</th></tr></thead>
+        <tbody>
+          <tr><td data-etichetta="Puoi">sapere quali dati abbiamo e averne una copia (art. 15)</td><td data-etichetta="Come">Profilo › Privacy e dati › Richiedi una copia dei tuoi dati, o email</td></tr>
+          <tr><td data-etichetta="Puoi">ricevere i dati che ci hai dato in un formato leggibile da un computer (art. 20)</td><td data-etichetta="Come">email</td></tr>
+          <tr><td data-etichetta="Puoi">correggere i dati (art. 16)</td><td data-etichetta="Come">da Profilo, o email</td></tr>
+          <tr><td data-etichetta="Puoi">cancellare i dati (art. 17)</td><td data-etichetta="Come">Profilo › Elimina account, o email</td></tr>
+          <tr><td data-etichetta="Puoi">limitare il trattamento (art. 18)</td><td data-etichetta="Come">email</td></tr>
+          <tr><td data-etichetta="Puoi">opporti al trattamento basato sul legittimo interesse (art. 21)</td><td data-etichetta="Come">email</td></tr>
+          <tr><td data-etichetta="Puoi">revocare il consenso (art. 7.3)</td><td data-etichetta="Come">Profilo › Privacy e dati › Revoca il consenso</td></tr>
+          <tr><td data-etichetta="Puoi">fare reclamo al Garante (art. 77)</td><td data-etichetta="Come"><a href="https://www.garanteprivacy.it">www.garanteprivacy.it</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>L’email è <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>. Rispondiamo entro un mese. Nei casi complessi possiamo arrivare a tre mesi in tutto, e te lo diciamo (art. 12.3). Per proteggerti possiamo chiederti di confermare chi sei, per esempio scrivendo dall’email dell’account.</p>
+
+    <h2 id="sicurezza">11. Sicurezza</h2>
+    <p>Proteggiamo i dati con misure adeguate (art. 32): connessioni cifrate, accesso ai dati limitato al tuo account, chiavi dei fornitori tenute solo sul server, pochi dati raccolti. Se succede una violazione dei dati, avvisiamo il Garante entro 72 ore quando la legge lo richiede, e avvisiamo te senza ritardo se c’è un rischio alto per i tuoi diritti (artt. 33 e 34).</p>
+
+    <h2 id="minori">12. Minori</h2>
+    <p>Gusto non è pensato per chi ha meno di 16 anni. Se scopriamo che un minore di 16 anni ha un account, lo cancelliamo. Se hai meno di 18 anni serve il permesso di un genitore per abbonarti, e Gusto non ti propone di perdere o prendere peso: solo di mantenerlo. Se sai che un minore di 16 anni usa Gusto, scrivici a <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a>.</p>
+
+    <h2 id="sito">13. Il sito swipegusto.com</h2>
+    <p>L’app non mostra pubblicità e non ti traccia su altre app o siti.</p>
+    <p>Il sito non usa cookie né altri strumenti che salvano o leggono informazioni sul tuo dispositivo. Non carica niente da server di altri: caratteri, immagini e programmi stanno sul nostro sito.</p>
+    <p>Il sito è ospitato da GitHub (GitHub Pages). Quando apri una pagina, GitHub registra il tuo indirizzo IP per motivi di sicurezza. Noi non usiamo questi dati. Come li tratta GitHub lo trovi nella sua <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">informativa privacy</a>.</p>
+
+    <h2 id="modifiche">14. Modifiche a questa informativa</h2>
+    <p>Quando la cambiamo, aggiorniamo la data in alto. Se il cambio è importante, te lo diciamo nell’app prima che valga e, se serve, ti chiediamo di nuovo il consenso.</p>
+
+    <h2 id="contatti">15. Contatti</h2>
+    <ul>
+      <li>Privacy: <a href="mailto:privacy@swipegusto.com">privacy@swipegusto.com</a></li>
+      <li>Assistenza: <a href="mailto:support@swipegusto.com">support@swipegusto.com</a></li>
+      <li>Titolare: Benito Calia</li>
+      <li>Autorità di controllo: Garante per la protezione dei dati personali, <a href="https://www.garanteprivacy.it">www.garanteprivacy.it</a></li>
+    </ul>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenitore">
+    <p>© <span class="numeri">2026</span> Gusto, un servizio di Benito Calia · <a href="mailto:support@swipegusto.com">support@swipegusto.com</a></p>
+    <p><a href="../">Gusto</a> · <a href="../privacy/">Privacy</a> · <a href="../termini/">Termini</a> · <a href="https://swipegusto.com/support/">Assistenza</a></p>
+  </div>
+</footer>
 </body>
 </html>
