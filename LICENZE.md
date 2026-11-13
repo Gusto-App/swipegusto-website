@@ -11,6 +11,14 @@ Gli avvisi in testa ai file non si tolgono. Questo foglio resta nella cartella d
 
 Lette il 10/11/2026. Se aggiorni una libreria: tutti i file di Three.js dalla stessa versione, e riscrivi la riga qui sopra.
 
+**Nella cartella pubblicata** (la fa `costruisci.py`, dal 12/11/2026) i file sono uniti per arrivare prima su una rete lenta:
+GSAP, ScrollTrigger e SplitText stanno dentro `gusto.<impronta>.js`, ognuno col suo avviso in testa; di Three.js ci sono solo i
+pezzi che la pagina usa, dentro `tre3d.<impronta>.js`, con l'avviso in testa al file e `libreria/LICENZA-three.txt` accanto;
+Lenis resta in `libreria/lenis.min.js` (lo chiama il motore, solo dove c'è il mouse). Gli attrezzi che li uniscono (esbuild, e
+Three.js 0.180.0 da npm: la stessa versione) stanno fuori dal sito, in `sorgenti-e-attrezzi/attrezzi/veloce/`.
+I caratteri pubblicati (`caratteri/*.<impronta>.woff2`) sono gli stessi, ridotti alle lettere che le pagine usano: la licenza
+OFL lo permette, e non ci sono nomi riservati.
+
 ## I caratteri
 
 | Cosa | Autore | Licenza | Da dove | Data |
